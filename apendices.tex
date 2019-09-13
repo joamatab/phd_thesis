@@ -1,0 +1,141 @@
+\chapter{Simulation algorithms} % Electromagnetic Algorithms Photonic theory, design and simulation
+\label{ch:simulations}
+
+\section{Modes in a waveguide}
+There are several methods to calculate the modes that can propagate in a waveguide:
+
+\begin{itemize}
+ \item Finite element method.
+ \item Semi-analytical mode field representations \cite{Lohmeyer1997}.
+ \item Finite difference method \cite{Fallahkhair2008}.
+ \item The \textbf{Effective index method method} reduces the problem of a 3-dimensional waveguide into calculating the propagation constant in two slabs, which is more simple. To calculate the TE (TM) index modes and propagation constant, first, we calculate the modes of a 2D slab waveguide only limited in the one direction ($ height = h $) and solve the TE (TM) propagation constant and effective index, which for a 220~nm height silicon-on-insulator corresponds to a slab effective index $n_{eff~slab}=2.85$ (2.05 for TM). Now we use $n_{eff~slab}$ as the index of a second slab with $ width = w $ (See Fig.~\ref{fig:efIndexMethodFit2}).
+Finally, calculating the TM modes of the second slab, we obtain the modes and effective indices equivalent to the the original TE 3D waveguide. The explanation of this method can be found in~\cite{Marcatili1988,Chiang1986}.
+
+\end{itemize}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=1.0\textwidth]{efIndexMethod2Fit}
+    \caption{The effective index method divides a 3D waveguide into two slabs.}
+    \label{fig:efIndexMethodFit2}
+\end{figure}
+
+
+\section{Wave propagators}
+To design the different building blocks in chapter~\ref{ch:PhotonicCircuits}, we need to simulate the propagation of the modes in different structures. For that we can use different simulation algorithms:
+
+\begin{itemize}
+\item \textbf{Finite-difference time-domain method} is a time domain technique that can cover a range of frequencies in a single simulation. It computes light propagation and can include dispersion, conductivity, anisotropy and nonlinear properties of each material. It divides the simulation region into cubic grids where it solves Maxwell's equations. First it solves the electric field and in the next step the magnetic field, repeating over and over until reaching a steady state. It is a very rigorous method but simulating large structures requires a lot of computational time and memory.
+
+\item \textbf{Beam-propagation method} studies the evolution of electromagnetic fields in arbitrary inhomogeneous medium. It is a frequency domain method, so a single wavelength is solved at a given time.
+It is very fast but not very accurate for high index contrast structures because it uses the slow variation envelope approximation.
+
+\item \textbf{Eigenmode Expansion (EME)} is a linear frequency domain method technique. So a single wavelength is solved at a given time. By solving Maxwell's equations a set of eigenmodes are found in each local cross-section. 
+These equations provide a rigorous solution of Maxwell's equations in a linear medium, so the only limitation is the finite number of modes.
+When there is a change in the structure along the z-direction, the coupling between the different input and output modes can be obtained in the form of a scattering matrix. The scattering matrix of a discrete step can be obtained rigorously by applying the boundary conditions of Maxwell's equations at the interface; this requires to calculate the modes on both sides of the interface and their overlaps. For continuously varying structures (e.g. tapers), the scattering matrix can be obtained by discretising the structure along the z-axis.
+The boundary conditions for electromagnetic waves provide the equations required to solve for the $a_k$ and $b_k$ coefficients in front of the forward and backwards traveling eigenfunctions.
+
+\item Applying the \textbf{Split-step method} to the nonlinear Schr\"{o}dinger equation we can simulate the propagation of pulses in optical waveguides, considering  attenuation, dispersion, TPA, Kerr nonlinearity and the free-carrier-dispersion effect. 
+Using this method the overall propagation-length is divided in a series of steps significantly smaller than both the pulse dispersive length and the nonlinear length~\cite{Agrawal2001a,Lin2007}.
+Each simulation step assigns to each section of the waveguide an averaged carrier density as in~\cite{Lin2007}.
+Carrier generation rate is governed by the TPA coefficient, while carrier decay time is assumed to be much longer than the pulse duration.
+Finally the FCA and FCD coefficients dictate the effect of the carriers on the instantaneous absorption and refractive index of the waveguide respectively~\cite{Lin2007}.
+
+\end{itemize}
+
+% Once computed the modes, there are several algorithms that can simulate their propagation and design the different building blocks in chapter~\ref{ch:PhotonicCircuits}:
+% There are several numerical simulation algorithms that we can use to model photonic integrated devices.
+
+\pagestyle{plain}
+\bibliographystyle{unsrt}
+\bibliography{/home/joaquin/Documents/library}
+\pagestyle{fancy}
+\lhead{}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+
+% http://optical-waveguides-modeling.net/index.jsp
+
+
+
+% \begin{itemize}
+%  \item Time Domain
+%   \begin{itemize}
+%    \item FDTD (Finite Difference Time Domain)
+%    \item DGTD (Discontinuous Galerkin Time-Domain)
+%   \end{itemize}
+%   
+%  \item Frequency Domain
+%   \begin{itemize}
+%    \item FD-BPM (Finite Difference – Beam Propagation Method)
+%    \item EME (Eigenmode Expansion)
+%    \item FEFD (Finite Element Frequency Domain)
+%   \end{itemize}
+% 
+% \end{itemize}
+
+
+
+
+% 
+% \chapter{Mask design}
+% \label{ch:maskDesing}
+% Integrated circuits are processed from \textit{GDSII} files to create a mask, which is like using a negative film in photography.
+% A very good tool to visualize Layout GDSII (Graphical Data System) files is \textit{Klayout}.
+% It allows you to move, resize or round elements and make logic operations between layers.
+% However, a tool with scripting capabilities is more powerful to create parametric sweeps, automatize routing and placing of components.
+% IPKISS is a powerful component and design tool develop in Ghent University and Imec using Python Numpy and SWIG libraries.
+% Their idea is to combine electromagnetic simulation engines such as CAMFR and Meep and mask layout in only one tool.
+% Using the program we are able to obtain the GDSII file  that we will need to manufacture photonic integrated circuits.
+% 
+% \section*{GDS}
+% GDSII is a vectorial system, that generates lines with coordinates instead of pixels.
+% The elements of a GDS are boundaries, paths and references. 
+% 
+% \subsection*{References}
+% References point at structures, which can contain other structures (hierarchy).
+% When referencing structures we can apply transformations like rotation, translation, scaling, mirror, etc.
+% Structures must have a unique name and can be recycled to save memory and facilitate subsequent amendments.
+% We can also use an array of references defining the period in both dimensions.
+% 
+% 
+% \subsection*{Layers}
+% Layers contain two numbers (Layer x/y):
+% 
+% \begin{itemize}
+%  \item x: process 
+%  \item y: purpose 
+% \end{itemize}
+% 
+% Every element can be drawn in any layer and it can superimpose with other elements.
+% 
+% 
+% \subsection*{Elements}
+% Elements are shapes on a certain layers.
+% We distinguish 4 types of elements:
+% 
+% \begin{itemize}
+%   \item Shape elements:
+%     \begin{itemize}
+%       \item Boundaries (closed polygon): it defines the area inside a shape. %An instance of class Boundary can be created by specifying a layer and a shape as parameters.
+%       \item Paths (open path with a certain width): a path defines a line with a certain width combining a shape's points. % An instance of class Shape can be created by specifying a layer, a shape and a line width.
+%     \end{itemize}
+%     \item Reference elements:
+%      \begin{itemize}
+%       \item single reference (class SRef):  reference to a structure
+%       \item array reference (class ARef): reference to a structure repeated a number of times with certain period
+%     \end{itemize}
+%     
+% \end{itemize}
+% 
+% 
+% \subsection*{Group}
+% A Group is a collection of elements combined together.
+% It is also an element but it is usually not reused, as for example, a connecting waveguide between two components.
+% %g = Group(elements = [p,b,e])
+% 
+% 
+% \subsection*{Structure}
+% A Structure also describes a collection of elements, but it describes a reusable entity which can stand on its own. Each structure is identified by it's own name. It is typically a parametric component which is placed on a chip in various locations. The unique name is normally assigned automatically or can be set manually by the user. A structure can directly be exported to a GDSII-file, or it can first be put in a library.
+
+
+

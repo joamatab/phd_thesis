@@ -1,0 +1,123 @@
+\chapter{Paper:~Ultrafast all-optical logic gates with Si-nanocrystal slot}
+\label{ch:paperLogicGates}
+
+What prevented us from using more power or presenting an Eye pattern in high speed switches and logic gates is the generation of free-carriers in Silicon waveguides, which alters the level of zero when several pulses arrive.
+To solve this problem, there are several strategies. The most common is to create a reverse polarized PN junction to sweep carriers~\cite{Turner-Foster2010}, but it complicates the fabrication and increases the power consumption.
+
+We proposed to enhance the Kerr response by introducing silicon nanocrystals, with very high $\chi^3$, in a horizontal slot configuration. Using this structure we demonstrated an all-optical logic gate with ultrafast switching time ($<40$~ps). In this paper I participated in the experimental measurements and data analysis together with C. Oton. The paper was presented in the IEEE Group IV Photonics, and the reference is the following:
+
+
+\vspace{1.5cm}
+C. J. Oton, J. Matres, A. Martinez, P. Sanchis, J. P. Colonna, C. Ratin, J. M. Fedeli, and J. Marti, “Ultrafast all-optical logic gates with silicon nanocrystal-based slot waveguides”, in Group IV Photonics (GFP), 2010 7th IEEE International Conference, 2010, pp. 171–173.
+
+\newpage
+\begin{center}
+\section*{Ultrafast all-optical logic gates with silicon nanocrystal-based slot waveguides}
+{C. J. Oton$^{1}$, J. Matres$^{1}$,  A. Mart\'inez$^1$, P. Sanchis$^1$,J. P. Colonna$^2$, C. Ratin$^2$, J.M. F\'ed\'eli$^2$ and J. Mart\'i,$^1$} 
+\end{center}
+
+\noindent
+\textit{$^1$ Nanophotonics Technology Center, Universidad Polit\'ecnica de Valencia, Camino de Vera s/n, 46022, Valencia, Spain\\
+$^2$CEA LETI, Minatec Campus, Grenoble 38054, France}
+
+
+\textbf{Abstract} \\
+\noindent
+We report an ultrafast ($<40$~ps) all-optical XOR logic gate based on a silicon nanocrystal-based horizontal slot waveguide.
+The device consists of a Mach-Zehnder interferometer with three input ports, and is driven by $\approx 200~$mW peak power.
+
+
+\section{Introduction}
+Silicon photonics has recently become a subject of intense research, particularly during the last years, when industries have started to develop devices which are now becoming competitive with other technologies. During the last few years, there have been significant advances in nonlinear devices such as all-optical switches, routers, and logic gates. These devices usually take advantage of the free carrier dispersion (FCD) effect produced by carriers generated through two-photon absorption (TPA) mechanisms. The main issue with these devices is the speed, dominated by a carrier recombination time which is usually in the order of 1 ns. Different approaches have been proposed to increase the speed, the most successful one being carrier depletion through a p-i-n junction,\cite{Turner-Foster2010} although it still has a bandwidth limitation.
+On the other hand, the nonlinear Kerr effect is more appealing than the carrier-related nonlinearities, as the former is instantaneous thus there is no intrinsic bandwidth limitation. However, in standard silicon waveguides, the carrier-related effects take place at lower powers than the Kerr effect, so the ultrafast Kerr response gets masked. Therefore, other materials have to be combined with silicon to attain a more intense Kerr response. Polymers have been proposed as suitable candidates,\cite{Koos2009} but these materials involve non-CMOS processes and impose a temperature limitation too. Silicon nanocrystal-based waveguides only require CMOS processes and have a very high nonlinear coefficient~\cite{Spano2009}. In this paper we show experimental results of an ultrafast all-optical XOR logic gate in a Mach-Zehnder interferometer (MZI) based on this approach.
+
+
+\section{Fabrication}
+The layer responsible for the nonlinear Kerr effect is PECVD-grown silicon-rich silica (SiOx), which is annealed at $1200^\circ$C for 1~h so that it can form silicon nanoclusters. However, in the sample presented here, the amount of silicon excess is too low to measure it with precision (probably less than 1\%). In order to enhance the nonlinear effect, this layer was sandwiched between two silicon channels in a horizontal slot configuration~\cite{Jordana2007}. To fabricate such a geometry, a 100~nm layer of SiOx followed by a 220~nm polysilicon layer were deposited on top of a standard SOI wafer with 220~nm Si layer. The waveguides were dry-etched to form 500~nm-wide channels, and inverted tapers as in Ref.~\cite{Bakir2010} were added to the facets to facilitate the coupling. The whole layout was covered with silica. More details of the fabrication and material properties can be found in Ref.~\cite{Martinez2010}.
+
+
+\section{Characterization}
+Figure~\ref{fig:setupLogicGate} sketches the setup employed for the nonlinear characterization. A low-power cw probe laser was launched into the central branch of an asymmetric MZI, while two different high power pulse patterns were coupled to each branch of the MZI. A standard 250~$\mu$m-separated flat fiber array was used to couple to the 3-input-port MZI. The XOR behavior of the device comes from the fact that equal inputs in the branches keep the MZI balanced, thus there is no response, while different inputs unbalance the interferometer, generating a response in the probe signal. The MZI also had microring resonators in each branch, although in this experiment their effect is not observable because the wavelengths were chosen to be far from the resonances. Propagation losses were less than 5~dB/cm.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=1.0\textwidth]{setupLogicGate}
+      \caption{Experimental setup for the characterization of the optical logic gate. Triangles represent Er-doped fiber amplifiers with an ASE filter. A fiber array was used to simultaneously couple the light to the three inputs of the MZI.}
+    \label{fig:setupLogicGate}
+\end{figure}
+
+
+The wavelength of the pump was set to 1560~nm, although it does not particularly matter in the performance of the device, as there are no interference fringes on that input, as shown in Fig.~\ref{fig:spectrumXor}. The wavelength of the probe signal does matter, as the intentional asymmetry of the branches produces fringes which allow us to set the initial working point at any point of the fringe. The wavelength chosen was 1546.27~nm, where the slope of that particular fringe was maximum, in order to get the maximum response. This working point produces positive (negative) pulses in the probe signal when pulses are coupled to the branch A (B), as shown in Fig.~\ref{fig:ultrafastXor}. As branch A is shorter than branch B, this means that the effective index increases in presence of the pump, which means that the Kerr coefficient is positive, and rules out the generation of carriers as the cause of the fast nonlinearity. When both branches are simultaneously excited, the phase change is identical in both 
+branches, thus no response is observed. Peak powers in the coupling fiber was only 500~mW, which becomes 200~mW after 4~dB estimated coupling loss, and produced $\approx$1dB modulation depth, as shown in Fig.~\ref{fig:ultrafastXor}.
+Although the ultrafast response is produced by a Kerr effect, which is instantaneous, there were also carriers generated by TPA which introduced a much slower response too ($>1$~ns). This effect is negligible when short trains of pulses are sent, but when a realistic telecom signal is launched, it generates a fluctuating baseline which prevents an error-free performance. This is a well-known issue in any silicon waveguide where carriers are generated, and can be overcome for example by introducing a carrier depletion mechanism~\cite{Turner-Foster2010}. This would also allow coupling higher powers to the device, thus achieving a higher modulation extinction ratio.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{spectrumXor}
+      \caption{Spectrum of the asymmetric MZI of 15~mm length and 350~$\mu$m path difference, for the three input branches. Pump and probe wavelengths are indicated with arrows.}
+    \label{fig:spectrumXor}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ultrafastXor}
+      \caption{Ultrafast probe signal when a train of two bits separated 100~ps is sent through branches A and B (top, blue), just A (middle, green) and just B (bottom, red).}
+    \label{fig:ultrafastXor}
+\end{figure}
+
+
+\section{Conclusions}
+We report the experimental characterization of an all-optical XOR logic gate on a silicon-nanocrystal slot waveguide. This geometry provides an enhanced Kerr effect, enabling ultrafast ($<40$~ps) switching times. The device is a Mach-Zehnder interferometer with 3 input ports, and achieves $\approx 1$~dB modulation depth by using optical peak powers of $\approx 200$~mW.
+
+\section*{Acknowledgments}
+We acknowledge financial support from the EU project PHOLOGIC (FP6-IST-NMP-017158) and from the Spanish Ministry of Science and Innovation through contracts SINADEC (TEC2008-06333) and DEMOTEC (TEC2008-06360).
+
+\begin{thebibliography}{1}
+
+\bibitem{Turner-Foster2010}
+Amy~C Turner-Foster, Mark~a Foster, Jacob~S Levy, Carl~B Poitras, Reza Salem,
+  Alexander~L Gaeta, and Michal Lipson.
+\newblock {Ultrashort free-carrier lifetime in low-loss silicon
+  nanowaveguides.}
+\newblock {\em Optics Express}, 18(4):3582--91, February 2010.
+
+\bibitem{Koos2009}
+C~Koos, P~Vorreau, T~Vallaitis, P~Dumon, W~Bogaerts, R~Baets, B~Esembeson,
+  I~Biaggio, T~Michinobu, F~Diederich, W~Freude, and J~Leuthold.
+\newblock {All-optical high-speed signal processing with silicon – organic
+  hybrid slot waveguides}.
+\newblock {\em Nature Photonics}, 3(April):1--4, 2009.
+
+\bibitem{Spano2009}
+R~Spano, N~Daldosso, M~Cazzanelli, L~Ferraioli, L~Tartara, J~Yu, V~Degiorgio,
+  E~Giordana, J~M Fedeli, and L~Pavesi.
+\newblock {Bound electronic and free carrier nonlinearities in Silicon
+  nanocrystals at 1550nm.}
+\newblock {\em Optics Express}, 17(5):3941--3950, 2009.
+
+\bibitem{Jordana2007}
+E~Jordana, J.-M. Fedeli, P~Lyan, J~P Colonna, P~E Gautier, N~Daldosso,
+  L~Pavesi, Y~Lebour, P~Pellegrino, B~Garrido, J~Blasco, F~Cuesta-Soto,
+  P~Sanchis, Grenoble Cedex, and De~Barcelona.
+\newblock {Deep-UV Lithography Fabrication of Slot Waveguides and Sandwiched
+  Waveguides for Nonlinear Applications}.
+\newblock In {\em Group IV Photonics, 2007 4th IEEE International Conference},
+  number~1, pages 1--3, 2007.
+  
+\bibitem{Bakir2010}
+B. Ben Bakir, A. V de Gyves, R. Orobtchouk, P. Lyan, C. Porzier, A. Roman, and J.-M. Fedeli
+\newblock {Low-loss ($<~1$ dB) and polarization-insensitive edge fiber couplers
+  fabricated on 200-mm silicon-on-insulator wafers}.
+\newblock {\em IEEE Photonics Technology Letters}, 22(11):739--741, 2010.
+
+\bibitem{Martinez2010}
+Alejandro Mart\'{\i}nez, Javier Blasco, Pablo Sanchis, Jos\'{e}~V Gal\'{a}n,
+  Jaime Garc\'{\i}a-Rup\'{e}rez, Emmanuel Jordana, Pauline Gautier, Youcef
+  Lebour, Sergi Hern\'{a}ndez, Romain Guider, Nicola Daldosso, Blas Garrido,
+  Jean~Marc Fedeli, Lorenzo Pavesi, Javier Mart\'{\i}, and Rita Spano.
+\newblock {Ultrafast all-optical switching in a silicon-nanocrystal-based
+  silicon slot waveguide at telecom wavelengths.}
+\newblock {\em Nano letters}, 10(4):1506--11, April 2010.
+
+\end{thebibliography}

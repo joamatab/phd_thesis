@@ -1,0 +1,3 @@
+
+
+pdflatex tesis.tex

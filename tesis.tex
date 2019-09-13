@@ -1,0 +1,80 @@
+\documentclass[a4paper]{report}
+\usepackage[utf8]{inputenc} %these  package are in order to get proper accents
+\usepackage{graphicx}
+\usepackage[justification=centering]{caption}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage{cite}
+\usepackage{chapterbib} %blibliography in each chapter
+\usepackage{hyperref}
+\usepackage{tabulary}
+\usepackage{amsmath}
+\graphicspath{{/home/joaquin/Dropbox/figures/diagrams/}{/home/joaquin/Dropbox/figures/}{/home/joaquin/Dropbox/python/figures/}{/home/joaquin/Dropbox/figures/eps/}}
+%\usepackage[T1]{fontenc}  these 2 packages ara in order to get proper accents
+
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\fWidthSetup}{1.00}
+\newcommand{\fWidth}{0.6}
+\newcommand{\fWidthTwoFiguresNextToEachOther}{0.49}
+\newcommand{\fWidthTwoFigures}{0.85}
+\newcommand{\fWidthThreeFigures}{0.70}
+\newcommand{\fwidthBig}{1.0\textwidth}
+\newcommand{\fwidthSmall}{0.6\textwidth}
+
+
+\begin{document}
+
+\pagestyle{empty}
+\noindent
+\includegraphics[width=7cm]{logoUPV}
+\hspace{\fill}
+\includegraphics[width=3cm]{logoDCOM}
+\vspace{2cm}
+\begin{center}
+ \Large Thesis for the degree of Doctor of Philosophy
+\end{center}
+\vspace{3cm}
+\begin{center}
+ \Huge Ultrafast, CMOS compatible, integrated all optical switching\vspace{1.5cm}
+ \vspace{2cm}
+ \Large Joaquin Matres
+\end{center}
+\vspace{2cm}
+\begin{flushleft}Supervisors:\\\large
+\vspace{0.3cm}Dr. Claudio Jose Oton Nieto\\ Prof. Javier Marti Sendra
+\end{flushleft}
+\centerline{\\[1.0cm]}
+\centerline{Valencia, November 2013}
+\pagenumbering{roman}
+
+\pagestyle{empty}
+\tableofcontents
+% \listoffigures
+% \listoftables
+% \setcounter{chapter}{0}
+
+\chapter*{Acknowledgements}
+In first place I would like to thank my supervisor Claudio for all his help during my PhD, without him all this work could have never been possible. I would also like to thank my co-supervisor Javier for all his advice and support.
+I am fortunate to have worked in well recognized research institutes that have allowed me to develop my capabilities in cutting-edge topics, working with people from different backgrounds and countries and developing a technology that will benefit our children and all the society. After learning from such amazing people, now I can dream with objectives never imagined before. For that I would like to thank all my colleagues in Valencia, Southampton and Davis. 
+
+Finally I thank the Universidad Politecnica de Valencia for my doctoral grant, the Spanish Ministry of Science for the award of students with Excellence Mention and the Transatlantic Partnership for Excellence in Engineering – TEE European Commission Project mobility award. I also acknowledge financial support from the EU-project PHOLOGIC (FP6-IST-NMP-017158) and the Spanish Ministry of Science SINADEC (TEC2008-06333) and PROMETEO/2010/087 NANOFOTONICA projects.
+
+\include{intro}
+\include{circuits}
+\include{nonlinear}	
+
+\include{paperSwitching}
+\include{paperLogicGates}
+\include{paperSlot}
+\include{paperAmorfo}
+
+\include{conclusion}
+
+\appendix
+\include{experiments}	
+\include{paperBackscattering}
+\include{paperPhase}
+
+\include{apendices}
+
+\end{document}

@@ -1,0 +1,37 @@
+
+Hacemos el transfer matrix para un anillo con un punto de scattering añadiéndole
+absorción y obtener expresiones analíticas. Se obtienen expresiones tanto para
+la intensidad reflejada que vuelve por el puerto in como para la intensidad
+transmitida que va al out. A partir de la expresión para la reflejada se saca la
+distancia entre los dos picos que se separan igualando la derivada a cero y
+luego despejando \phi en función de la reflectividad. La nueva expresión se
+puede reescribir y aproximar considerando que r**2 es despreciable y anulando
+la x del denominador. Un resumen de distintos intentos para alcanzar una aprox
+se pueden encontrar en [2]. Si se reescribe la solución en términos de un factor
+de calidad llegamos a:
+
+\phi ~= k*L = 0.5*\sqrt{(x^2-\frac{1-r}{1+r})(\frac{1+r}{1-r}-x^2)}
+
+donde k = k_0*n_{eff}; L = 2*\pi*R; x = m*a
+
+m = lo que no se acopla al anillo en campo
+a = e^{-\alfa/2 * L}
+r = lo que se refleja en el pto de scattering en campo
+
+Qc = k/\Delta k
+
+En [3] se compara con los factores de calidad intrínsecos y extrínsicos del
+pasa todo sin considerar la reflexión y considerándola. El efecto del
+acoplamiento entre modos es el de limitar el factor de calidad cuando reducimos
+la absorción en el anillo. Da un factor de calidad más plano
+
+
+
+References
+============
+
+[1]->Engineering the spectral reflectance of microring resonators with  
+     integrated reflective elements. Kang, Young Mo; Arbabi.. \cite{Kang2010}
+[2]->~/Mathematica/comparisonAprox.nb
+[3]->~/Mathematica/RingResonator.nb
+

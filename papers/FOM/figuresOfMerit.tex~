@@ -1,0 +1,342 @@
+% Joaquin Matres
+%%%%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,letterpaper]{article}
+\usepackage{opex3}
+\usepackage{amsmath}
+
+\usepackage{color}
+\newcommand{\comment}[1]{\textcolor{red}{#1}}
+\newcommand{\fWidthSetup}{0.85}
+\newcommand{\fWidth}{0.8}
+
+%\usepackage{ae} %%for Computer Modern fonts
+
+%%%%%%%%%%%%%%%%%%%%%%% begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%% title page information %%%%%%%%%%%%%%%%%%
+\title{High figure of merit in amorphous Silicon waveguides}
+%\title{Ultrafast nonlinear dynamics in silicon nanocrystal-based horizontal slot waveguides}
+
+\author{J. Matres$^{*,1}$, P. Gautier$^2$, J-M F\'ed\'eli$^2$, J. Mart\'i$^1$ and C. J. Oton$^1$}
+% J. Mart\'i$^1$,
+\address{$^1$ Nanophotonics Technology Center, \\ Universidad Polit\'ecnica de Valencia, Camino de Vera s/n, 46022, Valencia, Spain\\
+$^2$CEA LETI, Minatec Campus, Grenoble 38054, France}
+
+\email{$^*$joamatab@ntc.upv.es}
+
+
+%%%%%%%%%%%%%%%%%%% abstract and OCIS codes %%%%%%%%%%%%%%%%
+%% [use \begin{abstract*}...\end{abstract*} if exempt from copyright]
+
+\begin{abstract}
+A two photon absorption figure of merit of 4.9 is measured in amorphous silicon strip waveguides. The nonlinear coefficient is obtained through Four-wave-mixing and the nonlinear loss is measured with the absorption for different peak power pulses. Dispersion is also measured fitting the four wave mixing conversion bandwidth.
+\end{abstract}
+% Where the nonlinear coefficient is measured through Four-wave-mixing and the nonlinear loss measuring the absorption for different peak power pulses. Dispersion is also measured fitting the four wave mixing conversion bandwidth.
+
+%Where we measure the nonlinear coefficient through Four-wave-mixing and the nonlinear loss is obtained measuring the absorption for different peak power pulses
+
+%how losses increase when rising the peak power of a pulsed laser.
+%We measure the real part of the nonlinear coefficient through Four-wave-mixing and the imaginary part with different peak powers
+%with the losses for different peak powers of a pulsed laser
+%Real part is obtained through Four-wave-mixing and absorption coefficient with the losses for different peak powers of a pulsed laser. We also obtained the dispersion through the FWM conversion efficiency bandwidth.
+
+%We compare the figure of merit in amorphous silicon waveguides with regular Silicon strip waveguides
+
+%An accurate method is presented to calculate the nonlinear absorption coefficient proven valid both for low (amorphous Silicon) and high (TE crystalline Silicon strip) absorption waveguides.
+%demonstrated as 
+ %A more accurate formula to calculate the imaginary part is explained and proven valid both for low (amorphous Si) and high (TE crystalline Silicon strip) absorption waveguides.
+%We present a simple technique to determine the imaginary part of the nonlinear coefficient. Comparing the values of different structures.
+
+
+\ocis{(190.0190) Nonlinear optics; (130.0130) Integrated optics; (320.0320) Ultrafast optics; (160.4330) Nonlinear optical materials.}
+
+%(220.0220) Optical design and fabrication; (230.5750) Resonators; (230.3990) Microstructure devices; (250.5300) Photonic Integrated Circuits.}
+
+%%%%%%%%%%%%%%%%%%%%%%% References %%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{osajnl}
+\bibliography{/home/joaquin/Documents/library}
+
+%\begin{thebibliography}{10}
+%\newcommand{\enquote}[1]{``#1''}
+
+
+
+%\end{thebibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%           Introduction           %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+Silicon photonics is a technology that is becoming competitive with alternative technologies in photonics, being its high integrability and low cost the most appealing features. Nonlinear silicon photonics is a very active research line, as devices with all-optical functionality could boost their speed with respect to their electrically-controlled counterpart. Many different nonlinear devices have been reported in the last years, such as all-optical modulators,~\cite{Almeida2004a} wavelength converters,~\cite{Lee2009}, etc. All of them can be easily integrated into new devices within a small area thanks to the high refractive index of silicon. 
+
+%All of them can be easily integrated into new devices within a small area thanks to the high refractive index of silicon. However such optical devices have been limited by the carrier dispersion and absorption effects, with a recombination time in the order of nanoseconds. Therefore, when carriers are generated they hinder all-optical devices speed below Gb/s.
+
+
+%This could boost the speed of new devices working at low powers at which few carriers are generated.
+
+%However such optical devices have been limited by the carrier dispersion and absorption effects, with a recombination time in the order of nanoseconds
+
+%All-optical switches require a figure of merit higher than one to achieve a $2\pi$ phase shift, where the figure of merit is the ratio between the nonlinear coefficient and $4\pi$ times the nonlinear losses \cite{Mizrahi1989}. Several materials and structures with their figures of merit were shown in paper \cite{Koos2007}.
+
+%Silicon photonics is a technology that is becoming competitive with alternative technologies in photonics, being its high integrability and low cost the most appealing features. Nonlinear silicon photonics is a very active research line, as devices with all-optical functionality could boost their speed with respect to their electrically-controlled counterpart. Many different nonlinear devices have been reported in the last years, such as all-optical modulators,~\cite{Almeida2004a} wavelength converters,~\cite{Lee2009}, etc. All of them can be easily integrated into new devices within a very small area, thanks to the high refractive index of silicon. However such optical devices have been limited by the carrier dispersion and absorption effects, with a recombination time in the order of nanoseconds, hindering possible all-optical devices to speeds under the Gb/s required in high-end systems. In all-optical switches, a figure of merit of 1 is needed for a $2\pi$ phase shift, defining the figure of merit as the ratio between the nonlinear coefficient and $4\pi$ times the nonlinear losses \cite{Mizrahi1989}. Several materials and structures with their figures of merit are shown in paper \cite{Koos2007}.
+
+
+Amorphous silicon has been demonstrated to have a high nonlinear coefficient \cite{Narayanan2010} and low TPA thanks to its wider band-gap \cite{OLeary1997}. Moreover it is a material that can be easily grown in CMOS compatible processes. As it doesn't need to pass through high annealing temperatures it is a good candidate for all-optical interconnects in between different chips and it could be grown on a top layer not affecting circuits already integrated on the chip.
+
+In paper \cite{Narayanan2010} a $Re\{\gamma\} = 2003 (W\cdot m)^{-1}$ nonlinear coefficient was presented, but the two photon absorption was also high, leading a figure of merit of 0.66, which is slightly higher than SOI waveguides. Different processing in the amorphous silicon grow has allowed to obtain a low TPA coefficient and the highest figure of merit of a CMOS-compatible photonic waveguide.
+
+
+
+%Paper \cite{Narayanan2010} obtains a nonlinear coefficient $Re\{\gamma\} = 2003 (W\cdot m)^{-1}$ but as it showed also a high two photon absorption coefficient, the figure of merit is 0.66, which is slightly higher than SOI waveguides. In this paper we obtain the same TPA coefficient both for an amorphous silicon TM waveguide and silicon strip SOI waveguide. However the nonlinear coefficient is 7 times larger, with figure of merit for a CMOS-compatible photonic waveguide.
+
+
+%A figure of merit is defined in paper \cite{Mizrahi1989} for all-optical switching devices, stating that a figure of merit of 1 is needed for a phase shift of $2\pi$rad. 
+%Not needing high annealing temperatures as in crystalline silicon would be a good candidate for all-optical interconnects in between different chips
+%Moreover it does not ne
+%In paper \cite{Koos2007} a two photon absorption figure of merit is defined the the 
+%When carrier effects are involved in these devices, the speed is limited by the carrier recombination time, which is usually in the order of 1ns. Although carrier sweeping can improve the speed,~\cite{Turner-Foster2010} nonlinear devices based on bound-electron Kerr effect are preferred, as their bandwidth does not have this limitation. One interesting parameter is the nonlinear absorption coefficient.
+%An easy way to determine the figure of merit of a waveguide
+%Slot waveguides have demonstrated to increase the Kerr effect because of the field enhancement produced in the low-index section. Different materials have been used to fill the slot, such as organic polymers, which have allowed to demonstrate all-optical 160Gb/s demultiplexing,~\cite{Koos2009} but these materials involve non-CMOS processes and impose temperature limitations. Silicon-nanocrystal-based waveguides are fully CMOS-compatible and have a very high nonlinear coefficient,~\cite{Spano2009} and ultrafast all-optical modulation and logic gates have been recently demonstrated \cite{Martinez2010a}-\cite{Otona}. In this paper we study the nonlinear dynamics of this kind of waveguides with a time-resolved technique and we also report four-wave-mixing measurements that provide a complete nonlinear characterization.
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%     Experiment      %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fabrication}
+Starting with bulk wafers oxidized with 3µm thickness, an hydrogenated amorphous silicon layer of 253nm was deposited by Plasma-enhanced chemical vapor deposition (PECVD) at 350\textcelsius. Waveguides were formed using DUV lithography and HBr Reactive-ion etching, then covered with $1.5\mu m$ thick silica.
+
+ On the other hand, silicon‑-on‑-insulator (SOI) waveguides were also fabricated for comparison. These were processed from SOI wafers with 220nm Silicon thickness, patterned with deep-UV lithography and covered with silica after the etching process. Their dimensions were 445x220 for transverse-electric (TE) polarization and 485x220 for transverse-magnetic (TM) polarization. Total length was 20mm for the amorphous Silicon waveguide and 25mm for the SOI waveguides.
+
+
+%Then using DUV lithography and HBr RIE etching waveguides were formed and covered with $1.5\mu m$ thick silica.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.32\textwidth]{p13}
+    \includegraphics[width=0.32\textwidth]{semV740tm}
+    \includegraphics[width=0.32\textwidth]{semV740te}
+    \caption{SEM images of the amorphous silicon (left), TM SOI (center) and TE SOI (right).}
+    \label{fig:sem}
+\end{figure}
+
+
+
+\section{Four-wave-mixing: Re\{$ \gamma $\}}
+We couple into the waveguide two continuous wave beams, an amplified pump $P_P(0)$ and a signal $P_S(0)$, generating an idler signal $P_i(L)$. We measure the conversion efficiency as a function of the wavelength separation between pump and signal (Fig.~\ref{fig:fwmBw}). Assuming that at these power levels TPA is negligible, we fit the results to Equation \ref{eq:ratio} for the FWM efficiency $ \eta $ formula as in Ref.~\cite{Vallaitis2009}.
+
+%(Fig.~\ref{fig:fwmSetup}
+
+%\begin{equation}
+%	\eta ^2=\frac{\alpha_0^2}{\alpha_0^2+\Delta \beta^2}\left[ 1+ 4e^{-\alpha_0L}\frac{sin^2(L\Delta\beta/2)}{(1-e^{-\alpha_0L})^2} \right]
+%\end{equation}
+
+%where $ \Delta\beta $ for a detuning $ \Delta\lambda = \lambda_p-\lambda_s$ is given by:
+
+%\begin{equation}
+%	\Delta \beta=\frac{2\pi cD_2}{\lambda_p^2}\Delta\lambda^2
+%\end{equation}
+
+
+
+\begin{equation}
+	P_i(L)=e^{-\alpha_0L}(\eta Re\{\gamma\}P_P(0)L_{eff})^2 P_s(0)
+\end{equation}
+
+\begin{equation}
+	\frac{P_i(L)}{P_s(L)}=(\eta Re\{\gamma\}P_P(0)L_{eff})^2 
+\label{eq:ratio}
+\end{equation}
+
+where $ L_{eff} $ is the effective waveguide length
+
+\begin{equation}
+	L_{eff}=\frac{1-e^{-\alpha_0L}}{\alpha_0}
+\end{equation}
+
+and the FWM efficiency $ \eta $
+
+\begin{equation}
+	\eta ^2=\frac{\alpha_0^2}{\alpha_0^2+\Delta \beta^2}\left( 1+ 4e^{-\alpha_0L}\frac{sin^2(L\Delta\beta/2)}{1-e^{-\alpha_0L}} \right)
+\end{equation}
+
+where the phase mismatch for a detuning $ \Delta\lambda = \lambda_p-\lambda_s$ is
+
+\begin{equation}
+	\Delta \beta=\frac{2\pi cD_2}{\lambda_p^2}\Delta\lambda^2
+\end{equation}
+
+
+
+From this we obtain the nonlinear coefficient $Re\{\gamma\}$ and dispersion D shown in Table~\ref{table:results}.
+The sign of the dispersion is obtained from Finite Element Simulations. For the TE and TM SOI waveguides the dispersion is -1,320 and -19,860ps/(km~nm) respectively. Using an accurate heterodyne interferometric dispersion technique as in \cite{Mas} we obtain -1,200 and -19,800ps/(km~nm), which agrees reasonably well with the aforementioned values.
+
+
+%Moreover fitting the conversion bandwidth to equation~\ref{eq:ratio}
+%\begin{figure}[htb]
+ %  \centering
+  %  \includegraphics[width=1.00\textwidth]{fwmOneEdfa}
+   % \caption{Four Wave Mixing characterization setup.}
+    %\label{fig:fwmSetup}
+     %\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{fwm_convEffMax_29p5dB_}
+    \caption{Different signals in the FWM experiment. With 13dBm pump power in waveguide a conversion efficiency of -29.5dB was measured.}
+    \label{fig:fwmBw}
+\end{figure}
+%Different signals in the FWM experiment. An idler with -29.5dB conversion efficiency was measure for 13dBm pump power in waveguide
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.32\textwidth]{fwm_bandwidth_P13_TM20mm_15dBmPump_6dBcm_332Wm_6474psKmnm_big_1pointMore}
+    \includegraphics[width=0.32\textwidth]{fwm_bandwidth_V740_C11_TM25mm_20dBm_pump_1p67_46p81_19860psKmnm_big}
+    \includegraphics[width=0.32\textwidth]{fwm_BW_V740C11_TE25mm_15dBmPump_3p8dBcm_361Wm_-1322psKmnm_big}
+    \caption{Four wave mixing conversion efficiency bandwidth. Pump powers: 7.5dBm (TM a-Si), 14dBm (TM SOI), 9dBm (TE SOI). }
+    \label{fig:fwmBw}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.32\textwidth]{fwm_differentPumps_aSitm20mm}
+    \includegraphics[width=0.32\textwidth]{fwm_differentPumps_tm}
+    \includegraphics[width=0.32\textwidth]{fwm_differentPumps_te}
+    \caption{Four wave conversion efficiency for different pump powers. The conversion efficiency increases with the square of the pump power, which means a slope of 2 in logarithmic units (see linear fit to equation~\ref{eq:ratio}).}
+    \label{fig:fwmDifferentPump}
+\end{figure}
+
+
+
+
+\section{Nonlinear loss measurements: Im\{$ \gamma $\}}
+\label{sec:imGamma}
+Two-photon absorption is a well-known process in silicon waveguides. In a waveguide, we can consider it as the imaginary part of the gamma coefficient of the waveguide by using this differential equation:
+
+\begin{equation}
+ \frac{dP}{dz} = -\alpha P(z) - 2|Im(\gamma)| P(z)^2 
+\label{eq:differentialTPA}
+\end{equation}
+
+where P is the signal power through the waveguide, $\alpha$ is the linear loss of the waveguide, and $Im(\gamma)$ is the imaginary part of the $\gamma$ coefficient (we use the absolute value because $Im(\gamma)$ is negative, but we want to stress its loss character in the equation with a negative sign. 
+
+The output after a distance $L$ is given by:
+%~\cite{Vallaitis2009}
+
+\begin{equation}
+ P(L) = \frac{e^{-\alpha L}}{1+2|Im(\gamma)| L_{eff} P_0} P_0
+\end{equation}
+
+where $P_0$ is the input power in the waveguide and  $ L_{eff}$ the effective length, defined as $[ 1-\mathrm{exp}(-\alpha L)] / \alpha $
+
+
+Therefore the relationship between the transmission at low power ($T_{LP} = e^{-\alpha L} $) and the transmission at high power ($T_{HP} = P(L)/P_0 $) represents only the nonlinear loss ($T^{-1}$):
+
+\begin{equation}
+ T^{-1} = \frac{T_{LP}}{T_{HP}} = 1+2|Im(\gamma)| L_{eff} P_0
+\label{eq:transmissionLinear}
+\end{equation}
+
+Which is a linear function on $P_0$. The slope of the curve can give us the two-photon absorption coefficient of our waveguide as in \cite{Vallaitis2009}.
+However, this equation is only valid for instantaneous transmission values. When a pulsed signal is sent, and the transmission is averaged over time, the measured transmission would be the integral of the output, which we can define as
+
+%If one sends a pulsed signal, the equation is still correct for every instantaneous moment, but not correct for the overall transmission energy of the pulse.
+%If one defines the energy transmission of a pulse $ \tilde{T} $ as the amount read by a power meter, one has to integrate the power along the whole pulse duration:
+
+\begin{equation}
+ \tilde{T}  = \frac{\int P(t,L)dt}{\int P_0(t)dt}
+\end{equation}
+
+where $\tilde{T}$ represent the averaged transmission of a pulsed signal with an input shape given by $P_0(t)$. With this definition, the ratio with the transmission at low power would be given by:
+
+
+%\begin{equation}
+ %\tilde{T} (L)^{-1} = \frac{\int P_0(t)dt}{\int P(t,L)dt} = \frac{\int P_0(t)dt} {e^{-\alpha L} \int \frac{P_0(t)}{1+2|Im(\gamma)| L_{eff} P_0(t)} dt}
+%\end{equation}
+
+\begin{equation}
+\tilde{T}^{-1} = \frac{\tilde{T}_{LP}}{\tilde{T}_{HP}} = \frac{\int P_0(t)dt}{\int \frac{P_0(t)}{1+2|Im(\gamma)| L_{eff} P_0(t)} dt}
+\label{eq:transmissionIntegral}
+\end{equation}
+
+
+which depends on the actual pulse shape $P_{0}(t)$ that is introduced. If the pulsed signal has a rectangular shape, one can use Eq.~\ref{eq:transmissionLinear}, but if the shape is different, the integral in Eq.~\ref{eq:transmissionIntegral} must be solved, as the result is different. Physically, the reason for this variation is the fact that the flanks of the pulse are not affected as hardly by TPA as the peak. Therefore, the overall energy transmission is higher than for the case of cw excitation. For the particular case of a $sech^2$ shape, which corresponds to the output of our laser, the result of  Eq.~\ref{eq:transmissionIntegral} is given by:
+
+% One can calculate analytically how much this transmission is for different typical pulse shapes.
+
+%We assume a hyperbolic secant pulse, typical for solitons, which is the shape of our femtosecond fiber laser $  P_0(t) = P_{0 peak}~\mathrm{sech}^2 (\frac{t}{\tau}) $. Solving Eq.~\ref{eq:transmissionIntegral} for the hyperbolic secant is not trivial. After some algebraic manipulation and using some properties of inverse hyperbolic trigonometric functions, one can extract the analytical result, which is:
+
+%\begin{equation}
+% P_0(t) = P_{0 peak}~sech^2 \frac{t}{\tau}
+%\end{equation}
+
+
+
+\begin{equation}
+\tilde{T}^{-1} = \frac{\tilde{T}_{LP}}{\tilde{T}_{HP}} \bigg|_{sech^2~shape}  = \frac{\sqrt{\delta}\sqrt{\delta + 1}}{sinh^{-1}(\sqrt{\delta})} ~~\mathrm{where}~~  \delta = 2|Im(\gamma)| L_{eff} P_{0 peak}
+\label{eq:transmissionHypSecant}
+\end{equation}
+
+%for $ \delta = 2|Im(\gamma)| L_{eff} P_{0 peak} $
+
+%\begin{figure}[htb]
+ %   \centering
+  %  \includegraphics[width=1.0\textwidth]{imGammaFit}
+   % \caption{Absorption characterization setup.}
+    %\label{fig:setupImGamma}
+%\end{figure}
+
+
+We measured this parameter with a power meter using the same picosecond laser at a wavelength of 1539~nm, and a variable attenuator. The results are shown in Fig.~\ref{fig:imGammaSamples}, where the curves were fitted to Eq.~\ref{eq:transmissionHypSecant} in order to extract the parameter $Im(\gamma)$ used in the simulations (shown in Table~\ref{table:results}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.32\textwidth]{imGamma_P13a_MiddleSet_TM_20mm_5p43_ida_big}
+    \includegraphics[width=0.32\textwidth]{imGamma_5p4366_V740TM25mm_big30}   
+    \includegraphics[width=0.32\textwidth]{imGamma_117Wm-1_V740TE25mm_big30}
+      \caption{Transmission versus waveguide peak power. Fit for $ sech^2 $ pulses using Eq.~\ref{eq:transmissionHypSecant}.}
+    \label{fig:imGammaSamples}
+\end{figure}
+
+
+
+\section{Results and conclusion}
+
+\begin{table}
+\centering
+\caption{Properties of the amorphous silicon waveguide compared with 445x220 and 485x220nm (TE and TM) SOI waveguides. The dispersion value was obtained through the fit of the FWM conversion bandwidth; sign was obtained simulating the dispersion of the structure. Figure of merit is defined in paper \cite{Koos2007}.}
+\begin{tabular}{l|ccc}
+\hline
+Sample & TM a-Si & TM SOI & TE SOI \\\hline
+coupling (dB) & 7.5 & 6 & 6\\
+propagation (dB/cm) & 4 & 1.9 & 4.9\\
+Leff (mm) & 9.14 & 15.2 & 8.34\\
+D $(ps/(Km\cdot nm))$ & -6500 & -19800 & -1200\\ 
+{$|Im\{\gamma\}| ~ (W\cdot m)^{-1}$ } & 5.43 & 5.44 & 68.08\\
+{$|Re\{\gamma\}| ~ (W\cdot m)^{-1}$ } & 332 & 47 & 361\\
+$ FOM = \frac{1}{4\pi} \frac{Re\{\gamma\}}{|Im\{\gamma\}|} $ & 4.9 & 0.69 & 0.43\\ 
+\hline
+\end{tabular}
+\label{table:results}
+\end{table}
+%{$|Im\{\gamma\}| ~ [Wm]^{-1} $ linear} & 2.98 & 2.68 & 26.71\\
+%To calculate the FOM we used the $ sech^2 $  pulses fit in Eq.~\ref{eq:transmissionHypSecant}
+
+
+
+Here we have obtained a very high TPA Figure of Merit in a CMOS-compatible amorphous Silicon waveguide. This ratio between kerr effect and TPA is considerably higher than regular SOI waveguides (see Table~\ref{table:results}) and would allow nonlinear devices to be easy grown when necessary. 
+In \cite{Kuyken2011} a figure of merit of 2.2 was obtained. However in this paper some degradation was observed and a post-annealing was necessary. Here we didn't observe any degradation. After one hour the FWM conversion efficiency at high CW pump power was not reduced, neither we observed any nonlinear loss increase at injecting pulses at maximum peak power.
+
+
+The TM mode of the SOI waveguides has a higher FOM than the TE because the TM mode also has more energy in the cladding than the TE mode. These results agree with the ones shown in Ref.~\cite{Vallaitis2009}. Measurements in this paper have shown similar absorption for TM SOI and amorphous silicon waveguides, while the nonlinear coefficient and therefore the figure of merit is 8 times larger for the latter.
+
+
+%As no annealing was necessary, amorphous Silicon could be used for optical interconnects in between different optical and electrical parts of the chip.
+
+%\section{Conclusion}
+%In conclusion, one has to be careful when extracting the imaginary part of $ \gamma $ from pulse transmission measurements, as Eq.~\ref{eq:transmissionLinear} is only valid for instantaneous transmission values. If transmission is measured with an averaging power meter, one has to use Eq.~\ref{eq:transmissionIntegral} for the specific pulse-shape, where in this paper we provide the solution for Lorentzian, Hyperbolic secant, and Gaussian shapes.
+
+
+\section*{Acknowledgments}
+We acknowledge financial support from the Spanish Ministry of Science and Innovation through SINADEC (TEC2008-06333) and DEMOTEC(TEC2008-06360) projects, and Universidad Polit\'ecnica de Valencia for PAID 2011/1914 and Joaquin Matres' doctoral grant.
+
+\end{document} 

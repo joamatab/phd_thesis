@@ -1,3 +1,3 @@
 
-
-pdflatex tesis.tex
+tesis.pdf:
+	pdflatex tesis.tex

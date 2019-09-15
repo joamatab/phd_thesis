@@ -1,0 +1,160 @@
+%
+%
+%Backscattering in microring resonators
+%Guillem Ballesteros
+%
+
+%%%%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,letterpaper]{article}
+\usepackage{opex3}
+\usepackage{amsmath}
+
+ %\usepackage{ae} %%for Computer Modern fonts
+
+%%%%%%%%%%%%%%%%%%%%%%% begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%% title page information %%%%%%%%%%%%%%%%%%
+\title{Characterizing and modeling backscattering in silicon microring resonators}
+
+\author{G. Ballesteros-Garcia, J. Matres, J. Mart\'i and C.J. Oton}
+
+\address{Nanophotonics Technology Center, \\ Universidad Polit\'ecnica de Valencia, Camino de Vera s/n, 46022, Valencia, Spain}
+
+\email{guibalga@ntc.upv.es}
+
+
+%%%%%%%%%%%%%%%%%%% abstract and OCIS codes %%%%%%%%%%%%%%%%
+%% [use \begin{abstract*}...\end{abstract*} if exempt from copyright]
+
+\begin{abstract}
+Resonance splitting due to coupling with the counter-propagating mode is the main limiting factor in ring resonators when high-Q factors are required. An experimental method to characterize them together with a theoretical analysis and procedure to extract all the key parameters of the resonator including backscattering is presented.
+\end{abstract}
+
+\ocis{(220.0220) Optical design and fabrication; (230.5750) Resonators; (230.3990) Microstructure devices; (250.5300) Photonic Integrated Circuits.}
+
+%%%%%%%%%%%%%%%%%%%%%%% References %%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{osajnl}
+\bibliography{library}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%           Introduction           %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+Silicon photonics has recently emerged as a viable technology for integrated photonic devices due to the high index contrasts that are achievable and that allow a great confinement of the optical modes. Microring resonators are elements which are simple to fabricate and are used for devices such as optical filters,~\cite{Little1998} sensors,~\cite{DeVos2007} modulators,~\cite{So2004} etc. A high quality factor is usually the key parameter that determines the performance of the device; however, in this technology the factor that limits its highest possible values is in most cases not the propagation loss, which can reach values below 2.4dB/cm~\cite{Dumon2004}, but the backscattering effect due to sidewall roughness~\cite{Morichetti2010a}. Backscattering in a resonator cannot be accounted for as a loss mechanism because in a cavity it can grow coherently much faster than losses. Backscattering is a well known cause of resonance splitting~\cite{Little1997a,Kippenberg2002}; but even before splitting occurs, it can dramatically modify the shape of the resonance, under the right circumstances (under-coupled rings) it can improve the transmission response by pulling down on the resonance making it look as if the ring is nearer to the critical coupling condition. If this effect is not taken into account and one extracts the parameters of the ring from a fit, it can produce a good curve agreement but with very wrong results.  In this paper, we propose a characterization technique and a fully analytical fitting procedure that allows a complete characterization of all the parameters of the ring including backscattering, without the need of a coherent backscattering measuring system as in~\cite{Morichetti2010a,Morichetti2010b}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%     Experiment      %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experiment}
+
+Silicon waveguides were fabricated from silicon-on-insulator (SOI) wafers with 220nm Si thickness and 2$\mu$m buried oxide thickness. Waveguides are fully-etched 220$\times$450nm channels which are covered with a 2$\mu$m $SiO_2$ layer, and grating couplers were used for coupling the light from standard single-mode fibers at $10^o$ angle. Waveguides and gratings were both patterned with deep-UV lithography. Transverse-electric (TE) polarization was used in all the experiments. Transmission spectra were collected with a tunable laser with 1~pm resolution with 2~dBm input power in fiber. The rings had a 20$\mu$m radius and two coupling points, providing a \emph{through} and a  \emph{drop} port. However, in this experiment we also collect the counter-propagating drop port, which we will call \emph{counter-drop} port. Measuring this port is crucial to fully characterize the ring, as it directly provides the information about the backscattering inside the cavity. The gap of the through and drop couplers was 275nm and 300nm respectively. 
+\begin{figure}[!t]
+    \centering
+    \includegraphics[scale=1.]{add_drop_ring_new.eps}
+    \caption{Proposed layout for future add-drop rings with drop (D), counter-drop (CD) and through (T) ports.}
+    \label{fig:add_drop_ring}
+\end{figure}
+
+Figure~\ref{fig:espectro} shows the measured transmission through all three ports of one microring. It is worth noting that the shape of the resonances is very variable, even though one would expect the loss and the coupling coefficients to be approximately the same in all cases. The reason for this behavior is the backscattering parameter, which is intrinsically noisy, thus producing an apparently random response in their resonances. It is noisy because reflections are produced by sidewall roughness along the ring, so they are randomly distributed along its length, and the overall reflection coefficient results from the interference of all the components, giving rise to sharp spectral variations. In order to extract the parameters of the ring, one must take into account backreflection, otherwise the estimation of the loss and coupling coefficients would depend on which resonance we select, which is unphysical and would produce wrong results. Therefore, a procedure to extract all the parameters including backreflection is needed in order to understand the behavior of our microring resonator. Next section provides an analytical treatment and a recipe to extract all the parameters from any given resonance.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=1.0\textwidth]{image.eps}
+    \caption{Top panel: Transmission spectrum of each port of the microring: the \emph{through} (red, solid), the \emph{drop} (blue, dashed), and the \emph{counter-drop} (green, dash-dot). Bottom panels: Detail of the 3 resonances labeled $a$, $b$ and $c$ corresponding to peaks at 1549, 1553 and 1558~nm, where frequency and transmission have been normalised. Solid curves are the experimental data and dashed lines are the analytical curves using the parameters extracted from the fitting procedure and shown in Table~\ref{table:results}.}
+
+    \label{fig:espectro}
+
+\end{figure*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%         Theory     %%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Theory}
+\label{sec:theory}
+
+A method for coupled resonators in the time-domain~\cite{Haus1984} was used to describe the ring, since it has already been proven to work for ring resonators where the propagating and counter-propagating modes are coupled through a coupling constant~\cite{Zhang2008}.
+Typically time-domain analyses take the photon life times as parameters, but these can be readily related to the usual energy coupling and losses constants of a space-domain analysis~\cite{J.HeebnerR.Grover2008} as in~\cite{Little1997} by:
+
+\begin{equation}
+    K_j=\frac{\omega_oL}{Q_{e,j} v_g}  \qquad \alpha=\frac{\omega_o}{Q_i v_g} \qquad \sqrt{R}=\frac{\omega_oL}{2Q_rv_g}
+\label{eq:space-constants}
+\end{equation}
+
+where the Q-factors are related to the $\tau$ constants of the time domain-model through $Q_j=\omega_o \tau_j/2$. The Q-factors $Q_{e,1}$, $Q_{e,2}$, $Q_{i}$ and $Q_{r}$ correspond respectively to the coupling with the bottom and top waveguides, the intrinsic losses and the coupling constant; $v_g$ is the group velocity of the waveguide and can be obtained from the free spectral range (FSR) of the ring. Finally, $Q_r$, has been related to the total reflectivity in a single-pass, that is, the fraction of energy coupled into the counter-propagating mode in one trip around the ring. Although the characteristics of the model imply a uniformly distributed backscattering, reflections really occur at randomly localized points, giving rise to the random nature of the variations of backscattering versus wavelength~\cite{Morichetti2010}.
+
+Following the guidelines in~\cite{Haus1984,Little1997,Zhang2008} the expressions for the signal in the different ports shown in Fig.~\ref{fig:add_drop_ring} are easily expressed in terms of quality factors as:
+\begin{eqnarray}
+	T&=& \left\lVert1-\frac{        \frac{2}{Q_{e,1}}(2j(\omega '-1)+\frac{1}{Q})   }  {   (2j(\omega '-1)+\frac{1}{Q})^2+\frac{1}{Q_r^2}  }\right\rVert^2 \label{eq:T} \\
+	D &=& \left\lVert\frac{          \frac{2}{\sqrt{Q_{e,1}Q_{e,2}}}(2j(\omega '-1)+\frac{1}{Q})   }  {   (2j(\omega'-1)+\frac{1}{Q})^2+\frac{1}{Q_r^2}    }\right\rVert^2 \label{eq:D} \\
+	C&=& \left\lVert\frac{          \frac{2}{Q_r\sqrt{Q_{e,1}Q_{e,2}}}   }  {   (2j(\omega'-1)+\frac{1}{Q})^2+\frac{1}{Q_r^2}    }\right\rVert^2 \label{eq:CD}
+\end{eqnarray}
+
+where $\omega'$ is the normalized angular frequency of the resonance under study.
+
+In order to extract the value of the different parameters, a measurement of the through, drop and counter-drop ports is needed. The expressions that result from particularizing equations~\ref{eq:T},\ref{eq:D} and \ref{eq:CD} for $\omega'=1$  ($T_o,D_o,C_o$) and the full width half maximum ($\delta_{FWHM}$) of the counter-drop port, are given by:
+
+\begin{eqnarray}
+    Q&=&\frac{\sqrt{\frac{C_o}{D_o}-1 + \sqrt{2}\sqrt{\left(\frac{C_o}{D_o}\right)^2+1}}}{\delta_{FWHM}} \label{eq:Q} \\
+    Q_r&=&\frac{1}{Q}\sqrt{\frac{D_o}{C_o}} \label{eq:Qu}\\
+    Q_{e,1}&=&\frac{2\frac{1}{Q}}{(\frac{1}{Q^2}+\frac{1}{Q_r^2})(1\pm\sqrt{T_o})}  \label{eq:Qe1}\\
+    Q_{e,2}&=&\frac{2\frac{1}{Q}(1\pm\sqrt{T_o})}{D_o(\frac{1}{Q^2}+\frac{1}{Q_r^2})}  \label{eq:Qe2}\\
+    Q_i^{-1}&=&Q^{-1}-Q_{e1}^{-1}-Q_{e2}^{-1} \label{eq:Qi} 
+\end{eqnarray}
+
+The 4 parameters that characterize the ring can be calculated using eq.~\ref{eq:space-constants}. 
+The sign ambiguity in equations~\ref{eq:Qe1} and \ref{eq:Qe2} is a byproduct of the existence of two degenerate operation regimes in the ring with different parameters but the same resonance shape. This ambiguity is well known in cases without any backreflection effect, and it is usually  overcome by measuring rings with different parameters or looking at the dependence on wavelength as in \cite{McKinnon2009}. In our case, the ambiguity only occurs for the peak with lowest reflection coefficient (the peak labeled as (b)), as in the other two cases it would give rise to a negative loss coefficient, which is unphysical, becasue it requires gain from the medium. As the sign has to be the same in all the peaks of the same ring, this provides a way to decide the correct sign in the expressions by analyzing more than one peak and looking for non-physical solutions.
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%        Results        %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Results}
+%The measured spectra at the three ports can be seen in Fig.~\ref{fig:espectro}. As it is expected from the results in \cite{stat_backscattering}, the extinction ratios and characteristics of the different resonances show a great variability since the backscattering differs from one resonance to the next. This effect can only be observed at high Q-factors due to the increasing relative importance of $Q_u$ with respect to $Q$.
+
+From the experimental data shown in Fig.~\ref{fig:espectro}, we have chosen three consecutive resonances which show quite different behavior in terms of extinction ratio and degree of splitting. The results obtained from the method described in section~\ref{sec:theory} for each resonance are shown in Table~\ref{table:results}, and the corresponding theoretical curves are shown in the insets of Fig.~\ref{fig:espectro}, where a good agreement is observed. It is worth noting that the coupling constants and the loss show small variations among resonances, being $R$ the one showing the strongest variations. This is expected from the nature of backscattering, and is a demonstration of the validity of our model. The asymmetry of the shape of peaks 1 and 3, which is not reproduced in the theory, could be explained by sudden variations in the reflection coefficient along the width of the resonance, which is not considered in the model.
+
+
+%%%%%%%%%%%%%%%%%%%%
+%%%%%    Conclusion     %%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusion}
+We have described an analytical model and a fitting procedure that allows extraction of all the key parameters of a silicon microring resonator with two coupling points. These parameters are both coupling constants, propagation loss and the backscattering coefficient. With this method, we demonstrate that variations of the backscattering parameter are the cause of the strong variations in the shape of different resonances of the same microring. All these parameters can be extracted from simple transmission measurements using a standard characterization setup.
+
+%We think that the methods described in this paper to analyze the parameters from a ring-type resonator when high-Q factors are intended, is an improvement with respect to other methods that don't take into consideration the effects of mutual mode coupling due to backscattering in the ring. Our method also allows for a way to measure the backscattering in waveguides with a standard characterization setup.
+%\setlength{\textfloatsep}{7pt} 
+\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+\label{results_table}
+\centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $\lambda(nm)$&(a) 1549.0&(b) 1553.4&(c) 1557.8 \\
+        \hline
+        \hline
+        $K_1(\%)$ & 3.35 & 3.33 & 4.18\\
+        \hline
+        $K_2(\%)$ & 1.70 & 1.76 & 1.96\\
+        \hline
+        $\alpha (dB/cm)$ & 12.4 & 11.2 & 12.7\\
+        \hline
+        $R(\%)$ & 0.036 & 0.011 & 0.18\\
+        \hline
+    \end{tabular}
+\caption{Extracted parameters from the peaks shown in Fig.~\ref{fig:espectro}. $R$ is the fraction of light that gets reflected in a single-pass. As expected, $R$ fluctuates much more than the rest of the parameters, being an intrinsically noisy variable.}
+\label{table:results}
+\end{table}
+
+
+\section*{Acknowledgments}
+
+
+The authors acknowledge financial support from the Spanish Ministry of Science and Innovation through contract SINADEC (TEC2008-06333). EPIXfab is also acknowledged for the fabrication of the devices.
+
+\end{document} 

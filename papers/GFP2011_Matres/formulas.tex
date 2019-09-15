@@ -1,0 +1,42 @@
+\documentclass{beamer}
+\usepackage{graphicx}
+\usepackage[justification=centering]{caption}
+\usepackage[colorlinks=true,citecolor=black,filecolor=black,linkcolor=red,urlcolor=black]{hyperref}
+%\usepackage{amsmath}
+%\usepackage{float}
+
+
+\usenavigationsymbolstemplate{}
+
+\begin{document}
+\begin{frame}
+ \frametitle{FWM efficiency fit formulas}
+
+\begin{equation}
+	\frac{P_i(L)}{P_s(L)}=(\eta Re\{\gamma\}P_P(0)L_{eff})^2 
+\end{equation}
+
+where $ L_{eff} $ is the effective waveguide length
+
+\begin{equation}
+	L_{eff}=\frac{1-e^{-\alpha_0L}}{\alpha_0}
+\end{equation}
+
+and the FWM efficiency $ \eta $
+
+\begin{equation}
+	\eta ^2=\frac{\alpha_0^2}{\alpha_0^2+\Delta \beta^2}\left( 1+ 4e^{-\alpha_0L}\frac{sin^2(L\Delta\beta/2)}{1-e^{-\alpha_0L}} \right)
+\end{equation}
+
+where the phase mismatch for a detuning $ \Delta\lambda = \lambda_p-\lambda_s$ is
+
+\begin{equation}
+	\Delta \beta=\frac{2\pi cD_2}{\lambda_p^2}\Delta\lambda^2
+\end{equation}
+
+
+\end{frame}
+
+\end{document}
+
+

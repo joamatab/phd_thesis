@@ -1,0 +1,219 @@
+%
+%
+%Backscattering in microring resonators
+%Guillem Ballesteros
+%
+
+%%%%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,letterpaper]{article}
+\usepackage{opex3}
+\usepackage{amsmath}
+
+\usepackage{color}
+\newcommand{\comment}[1]{\textcolor{red}{#1}}
+ %\usepackage{ae} %%for Computer Modern fonts
+
+%%%%%%%%%%%%%%%%%%%%%%% begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%% title page information %%%%%%%%%%%%%%%%%%
+\title{Figure of merit in Silicon waveguides}
+%\title{Ultrafast nonlinear dynamics in silicon nanocrystal-based horizontal slot waveguides}
+
+\author{J. Matres$^{*,1}$, J-M F\'ed\'eli$^2$ and C. J. Oton$^1$}
+% J. Mart\'i$^1$,
+\address{$^1$ Nanophotonics Technology Center, \\ Universidad Polit\'ecnica de Valencia, Camino de Vera s/n, 46022, Valencia, Spain\\
+$^2$CEA LETI, Minatec Campus, Grenoble 38054, France}
+
+\email{$^*$joamatab@ntc.upv.es}
+
+
+%%%%%%%%%%%%%%%%%%% abstract and OCIS codes %%%%%%%%%%%%%%%%
+%% [use \begin{abstract*}...\end{abstract*} if exempt from copyright]
+
+\begin{abstract}
+We determine the figure of merit of different structures. We present a simple technique to determine the imaginary part of the nonlinear coefficient. Comparing the values of different structures.
+\end{abstract}
+
+\ocis{(190.0190) Nonlinear optics; (130.0130) Integrated optics; (320.0320) Ultrafast optics; (160.4330) Nonlinear optical materials.}
+
+%(220.0220) Optical design and fabrication; (230.5750) Resonators; (230.3990) Microstructure devices; (250.5300) Photonic Integrated Circuits.}
+
+%%%%%%%%%%%%%%%%%%%%%%% References %%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{osajnl}
+\bibliography{/home/joaquin/Documents/library}
+
+%\begin{thebibliography}{10}
+%\newcommand{\enquote}[1]{``#1''}
+
+
+
+%\end{thebibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%           Introduction           %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Silicon photonics is a technology that is becoming competitive with alternative technologies in photonics, being its high integrability and low cost the most appealing features. Nonlinear silicon photonics is a very active research line, as devices with all-optical functionality could boost their speed with respect to their electrically-controlled counterpart. Many different nonlinear devices have been reported in the last years, such as all-optical modulators,~\cite{Almeida2004a} wavelength converters,~\cite{Lee2009} etc. When carrier effects are involved in these devices, the speed is limited by the carrier recombination time, which is usually in the order of 1ns. Although carrier sweeping can improve the speed,~\cite{Turner-Foster2010} nonlinear devices based on bound-electron Kerr effect are preferred, as their bandwidth does not have this limitation. One interesting parameter is the nonlinear absorption coefficient.
+
+
+ %Slot waveguides have demonstrated to increase the Kerr effect because of the field enhancement produced in the low-index section. Different materials have been used to fill the slot, such as organic polymers, which have allowed to demonstrate all-optical 160Gb/s demultiplexing,~\cite{Koos2009} but these materials involve non-CMOS processes and impose temperature limitations. Silicon-nanocrystal-based waveguides are fully CMOS-compatible and have a very high nonlinear coefficient,~\cite{Spano2009} and ultrafast all-optical modulation and logic gates have been recently demonstrated \cite{Martinez2010a}-\cite{Otona}. In this paper we study the nonlinear dynamics of this kind of waveguides with a time-resolved technique and we also report four-wave-mixing measurements that provide a complete nonlinear characterization.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%     Experiment      %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fabrication}
+REESCRIBIR
+Samples are fabricated starting from silicon‑-on‑-insulator (SOI) wafers with 220nm Si thickness. On top the Si layer, a 100nm--thick layer of silicon--rich silica ($ SiO_x $) was grown by PECVD, and annealed at 1200$^o$C for 1h. In this sample, the amount of silicon excess was too low to measure it with precision (probably less than 1\%). On top of that layer, a 220nm-thick layer of amorphous Si was grown by PECVD to form the top half of the waveguide. Waveguides were patterned with deep-UV lithography and etched down to the buried oxide to form channels as the ones reported in \cite{Martinez2010a}. Inverted tapers were added at the input and output ports to facilitate the coupling (as shown in Ref. \cite{Bakir2010}). The whole layout was covered with silica after the etching process.  
+
+
+
+\section{Estimation of TPA from pulsed transmission}
+Two-photon absorption is a well-known process in silicon waveguides. In a waveguide, we can consider it as the imaginary part of the gamma coefficient of the waveguide this way:
+
+\begin{equation}
+ \frac{dP}{dz} = -\alpha P(z) - 2|Im(\gamma)| P(z)^2 
+\label{eq:differentialTPA}
+\end{equation}
+
+where P is the signal power through the waveguide, $\alpha$ is the linear loss of the waveguide, and $|Im(\gamma)|$ is the absolute value of the imaginary part of gamma, where we use the absolute value because $|Im(\gamma)|$ is actually a negative number, but we want to use a negative sign to stress its loss character.
+This equation has an analytic solution \cite{Vallaitis2009}, which is:
+
+\begin{equation}
+ P(L) = \frac{e^{-\alpha L}}{1+2|Im(\gamma)| L_{eff} P_0} P_0
+\end{equation}
+
+where $P_0$ is the input power in the waveguide and $L_{eff}$ is defined as:
+
+\begin{equation}
+ L_{eff} = \frac{1-e^{-\alpha_0L}}{\alpha_0}
+\end{equation}
+
+This means that the inverse of the transmission is:
+
+\begin{equation}
+ T^{-1} = \frac{P_0}{P(L)} = \frac{1+2|Im(\gamma)| L_{eff} P_0}{e^{-\alpha L}}
+\end{equation}
+
+Therefore the relationship between the transmission at high power vs. the transmission at low power ($T_{LP}$) is:
+
+\begin{equation}
+ \frac{T^{-1}}{T_{LP}^{-1}} = 1+2|Im(\gamma)| L_{eff} P_0
+\label{eq:transmissionLinear}
+\end{equation}
+
+Which is a linear function on $P_0$. The slope of the curve can give us the two-photon absorption coefficient of our waveguide as in \cite{Vallaitis2009}.
+However, this equation is only valid for an instantaneous transmission values. If one sends a pulsed signal, the equation is still correct for every instantaneous moment, but not correct for the overall transmission energy of the pulse.
+If one defines the energy transmission of a pulse $ \tilde{T} $ as the amount read by a power meter, one has to integrate the power along the whole pulse duration:
+
+\begin{equation}
+ \tilde{T} (L) = \frac{E(L)}{E_0} = \frac{\int P(t,L)dt}{\int P_0(t)dt}
+\end{equation}
+
+where the integral covers the whole duration of the pump and E denotes the energy of the pulse.
+With this definition, we have:
+
+
+\begin{equation}
+ \tilde{T} (L)^{-1} = \frac{\int P_0(t)dt}{\int P(t,L)dt} = \frac{\int P_0(t)dt} {e^{-\alpha L} \int \frac{P_0(t)}{1+2|Im(\gamma)| L_{eff} P_0(t)} dt}
+\end{equation}
+
+
+And the ratio with the transmission at low power is:
+
+\begin{equation}
+ \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} = \frac{\int P_0(t)dt}{\int P(t,L)dt} = \frac{\int P_0(t)dt}{\int \frac{P_0(t)}{1+2|Im(\gamma)| L_{eff} P_0(t)} dt}
+\label{eq:transmissionIntegral}
+\end{equation}
+
+
+which depends on the actual pulse shape P(t).
+Physically, the reason for this variation is the fact that the flanks of the pulse are not affected as hardly by TPA as the peak of the pulse. Therefore, the overall energy transmission is higher than for the case of cw excitation (Eq.~\ref{eq:transmissionLinear}). One can calculate analytically how much this transmission is for different typical pulse shapes. One could start thinking of a Lorentzian shape:
+
+\subsection{Lorentzian}
+
+\begin{equation}
+ P_0(t) = \frac{P_{0 peak}}{1+\frac{t}{\tau}}
+\end{equation}
+
+
+The final result solving Eq.~\ref{eq:transmissionIntegral} does not depend on the duration of the pulse. The result of Eq.~\ref{eq:transmissionIntegral} for the Lorentzian pulse shape is:
+
+
+\begin{equation}
+ \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Lorentzian}  = \sqrt{1+2|Im(\gamma)| L_{eff} P_{0 peak}}
+\label{eq:transmissionLorentzian}
+\end{equation}
+
+where the square root of the equation contrasts with its absence in Eq.~\ref{eq:transmissionLinear}.
+
+Let us consider the gaussian case:
+
+\subsection{Gaussian}
+%Finally, let us consider the gaussian case:
+
+\begin{equation}
+ P_0(t) = P_{0 peak} exp \big( - (\frac{t}{\tau})^2 \big)
+\end{equation}
+
+
+where the solution of Eq.~\ref{eq:transmissionIntegral} is:
+
+
+\begin{equation}
+ \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Gaussian}  = \frac{\delta}{-Li_{\frac{1}{2}}(-\delta)}
+\label{eq:transmissionGaussian}
+\end{equation}
+
+where $ \delta = 2|Im(\gamma)| L_{eff} P_{0 peak} $ and $Li_s(z)$ is the so-called polylogarithm function defined as:
+
+
+\begin{equation}
+ Li_s(z) = \sum\limits_{k=1}^\infty \frac{z^k}{k^s}
+\end{equation}
+
+
+
+Finally, let us now assume a hyperbolic secant pulse, typical for solitons, which is the shape of our femtosecond fiber laser:
+\subsection{Hyperbolic secant}
+\begin{equation}
+ P_0(t) = P_{0 peak} sech^2 \frac{t}{\tau}
+\end{equation}
+
+
+
+Solving Eq.~\ref{eq:transmissionIntegral} for the hyperbolic secant was not trivial. After some algebraic manipulation and using some properties of inverse hyperbolic trigonometric functions, one can extract the analytical result, which is:
+
+\begin{equation}
+ \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Hyp. secant}  = \frac{\sqrt{\delta}\sqrt{\delta + 1}}{sinh^{-1}(\sqrt{\delta})}
+\label{eq:transmissionHypSecant}
+\end{equation}
+
+for $ \delta = 2|Im(\gamma)| L_{eff} P_{0 peak} $
+
+
+
+
+Let’s see how these result look like in a graph:
+
+
+
+As we can see, the cw case, which is equivalent to a pulse with a rectangular shape, has a linear dependence with the peak power, while the other shapes are all sublinear, being the Lorentzian case the most sublinear. The gaussian and hyperbolic secant are quite similar.
+Instead of using the exact equations shown here, some of which are a bit complicated, one can do an approximation for small $ \delta $ $(\delta \gg 1)$ to first order, where we obtain:
+ 
+
+
+remembering that ,  is the pulse energy transmittance, and  the low-power transmittance. It is worth noting that the slopes are significantly different.
+In conclusion, one has to be careful when extracting the imaginary part of  from pulse transmission measurements, as Eq.~\ref{eq:transmissionLinear} is only valid for instantaneous transmission values. If transmission is measured with an averaging power meter, one has to use Eq.~\ref{eq:transmissionIntegral}for the specific pulse-shape, where in this report we provide the solution for lorentzian, hyperbolic secant, and gaussian shapes.
+
+
+
+\section{Conclusion}
+We have described an analytical model and a fitting procedure that allows extraction of all the key parameters of a silicon microring resonator with two coupling points. These parameters are the two coupling constants, propagation loss and the backscattering coefficient. With this method, we demonstrate that variations of the backscattering  parameter are the cause of the strong variations in the shape of different resonances of the same microring. All these parameters can be extracted from simple measurements using a standard transmission characterization setup, and the experimental results from a ring resonator are succesfully fitted to the analytical model.
+
+
+\section*{Acknowledgments}
+The authors acknowledge financial support from the Spanish Ministry of Science and Innovation through contract SINADEC (TEC2008-06333) and by the Formaci\'on de Personal Investigador grant program of the Universidad Polit\'ecnica de Valencia.
+
+\end{document} 

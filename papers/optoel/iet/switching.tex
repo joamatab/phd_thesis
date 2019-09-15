@@ -1,0 +1,218 @@
+\documentclass[twocolumn]{el-author}
+
+%\usepackage[...]{...}      This has been commented out as we are not using any additional packages here.  On the whole, they should be unnecessary.
+\newcommand{\hH}{\hat{H}}
+\newcommand{\D}{^\dagger}
+\newcommand{\ua}{\uparrow}
+\newcommand{\nc}{\newcommand}
+\nc{\da}{\downarrow} \nc{\hc}{\hat{c}} \nc{\hS}{\hat{S}}
+\nc{\bra}{\langle} \nc{\ket}{\rangle} \nc{\eq}{equation (\ref}
+\nc{\h}{\hat} \nc{\hT}{\h{T}}\nc{\be}{\begin{eqnarray}}
+\nc{\ee}{\end{eqnarray}}\nc{\rd}{\textrm{d}}\nc{\e}{eqnarray}\nc{\hR}{\hat{R}}\nc{\Tr}{\mathrm{Tr}}
+\nc{\tS}{\tilde{S}}\nc{\tr}{\mathrm{tr}}\nc{\8}{\infty}\nc{\lgs}{\bra\ua,\phi|}\nc{\rgs}{|\ua,\phi\ket}
+\nc{\hU}{\hat{U}}\nc{\lfs}{\bra\phi|}\nc{\rfs}{|\phi\ket}\nc{\hZ}{\hat{Z}}\nc{\hd}{\hat{d}}\nc{\mD}{\mathcal{D}}
+\nc{\bd}{\bar{d}}\nc{\bc}{\bar{c}}\nc{\mc}{\mathcal}\nc{\ea}{eqnarray}\nc{\mG}{\mathcal{G}}\nc{\bce}{\begin{center}}
+\nc{\ece}{\end{center}}
+\date{1th November 2013}
+
+\begin{document}
+
+\title{Ultrafast nonlinear dynamics in silicon waveguides}
+
+\author{J. Matres, J. Marti and C. J. Oton}
+
+\abstract{We present the ultrafast nonlinear characterization of a CMOS-compatible silicon waveguide. A phase sensitive pump and probe technique was implemented in order to monitor the phase and amplitude response of the system with 1 picosecond resolution. This allowed the characterization of carrier generation and recombination dynamics, where decay times below 150~ps were observed. With this device, we show an all-optical modulator based on an integrated microring resonator with 10~dB extinction and 1/e recovery time of 150~ps.}
+
+\maketitle
+
+\section{Introduction}
+Integrated silicon-based optical devices have recently emerged as a feasible technology to route, switch and modulate signals in optical networks, which are expected to dramatically reduce device costs and provide new functionalities \cite{Soref2006}. However the main limitation in these devices is that ultrafast effects, such as Kerr, require so high powers that free-carriers are generated through two-photon absorption (TPA), limiting the speed of commutators \cite{Oton}, logic gates \cite{Oton2010}, etc.
+To solve this limitation there are several techniques to sweep this carriers, the most common  of them is to create a reverse biased PN junction \cite{Turner-Foster2010}.
+In this work we present two different nonlinear experiments to characterize the dynamics of nonlinear effects such as Kerr, cross absorption modulation and free-carrier dispersion. In the first experiment we will observe the phase and amplitude response of high power pulses (pump) over low power pulses (probe). The other experiment is optical switching; it is also based on controlling a low-power signal (probe), through high power pulses (pump).
+
+
+ 
+\section{Fabrication}
+The samples used were fabricated from SOI wafers with 3~$\mu m$ buried oxide and 250~nm silicon layer. The waveguides were patterned with e-beam lithography and etched with an inductively coupled plasma (ICP) etcher. The structures were covered with 2~$\mu m$ of silica after SEM characterization. The channels are 500~nm wide and 250~nm high, and are coupled to 20~$\mu m$-radius rings through a 300~nm gap. Light was coupled into the waveguides by butt-coupling with lensed fibers, and was extracted with an objective. The TM transmission spectrum was measured by tuning the laser, and the result is shown in Fig.~\ref{fig:fit20um300nmBig}, where one resonance is shown. The response was fitted to the theoretical equation~\cite{heebner2007optical} by using the propagation loss and coupling coefficient as parameters. A good agreement was found for propagation loss of 20~dB/cm and coupling coefficient k = 0.072. Full width at half depth (FWHD) of the peak was 92~pm, which corresponds to a Q-factor of 16870. 
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=60mm]{fit20um300nmBig_2}   
+    \caption{Transmission spectrum of the ring resonator sample (TM polarization). Solid line is the experimental data and dashed line is the result of the simulation when setting propagation loss to 20~dB/cm and coupling coefficient k = 0.072}
+    \label{fig:fit20um300nmBig}
+\end{figure}
+
+
+
+\section{All-optical switching}
+The setup for the all-optical switching experiment is shown in Fig.~\ref{fig:switchingSetupSwitching}. A tunable laser was modulated with a LiNbO3 modulator and amplified through Er-doped fiber amplifiers (EDFAs). The pulse train was generated with a 40~Gb/s bit pattern generator, where pulses had 45~ps duration and 6.4~ns period. The peak power coupled into the waveguide was estimated to be 85~mW. A continuous-wave (cw) probe signal was mixed with the pump with a 3~dB coupler and sent to the waveguide through the same fiber with an estimated coupled power of 0.5~mW. Wavelengths of pump and probe signals were respectively 1564 and 1554~nm, chosen to match with two resonances of the micro-ring resonator. The output signal was filtered to remove the pump component and amplified before sending the signal to a 50~GHz photodiode and collecting the data with a 40~GHz sampling scope.
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=60mm]{switching}
+    \caption{All-optical switching characterization setup. (Triangles represent EDFAs with ASE filters, PC: polarization controllers, DCA: Digital communication analyzer)}
+    \label{fig:switchingSetupSwitching}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=60mm]{inputPulsesSwitchingBig}
+    \caption{Input pulses with 45~ps duration, 6.4~ns period and 85~mW peak power coupled in the waveguide}
+    \label{fig:inputPulsesSwitchingBig}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=60mm]{broadBig}
+    \caption{Transmission spectrum of the ring resonator sample (TM polarization). Wavelengths of pump and probe signals were respectively 1564 and 1554~nm.}
+    \label{fig:transmissionSwitching}
+\end{figure}
+
+Figure \ref{fig:ntc02switching} shows the result of the second experiment, which is the demonstration of all-optical switching \cite{Oton}.The carrier dispersion effect produces a phase response, which is converted into intensity modulation by using a micro-ring resonator. As the resonance position blue-shifts when the carriers are excited, and the probe is tuned to the resonance, this shift produces an intensity modulation which is measured with the photo-diode. Using only 85~mW of pump peak power, the extinction ratio is 10.2~dB and the 1/e recovery time is 150~ps, which is close to the decay time observed in the phase-sensitive experiment. Depending on which point of the resonances we tune our CW laser we obtain positive (laser in the minimum of the resonance) or negative pulses (CW laser next to the resonance).  
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=60mm]{pos_pulse_big}
+    \caption{Variation of the probe signal when both pump and probe are resonant with two different modes of the microring. The grey box marks the pump duration.}
+    \label{fig:ntc02switching}
+\end{figure}
+
+
+
+\section{Heterodyne characterization}
+In order to study with great detail the nonlinear effects response, both in phase and module, we used an heterodyne characterization setup. The set up (Fig.~\ref{fig:timeResSetupSwitching}) consists of a series of probe pulses that are affected by a high power pulses (pump). Varying the pump pulses with respect to the probe ones we can see the module and phase response of nonlinear effects such as Kerr, cross absorption modulation and Free-carrier dispersion.
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=60mm]{timeResolvedBig}
+    \caption{Characterization setup. Grey dashed line: RF signals, continuous line: optical signals. The motorized delay line was used to modify the position of the pump pulses respect the probe ones. PC: polarization controller, AOM: acousto-optic modulator.}
+    \label{fig:timeResSetupSwitching}
+\end{figure}
+
+
+The initial pulse is divided into three pulses: two weak ones (a reference and probe separated 10~ns), and one pump pulse, situated close to the probe pulse, and whose temporal position with respect to the probe can be varied. The reference and probe pulses are recombined after passing through the sample, and the beatings they produce are collected in the lock-in. The 40~KHz beatings  are produced because the wavelengths of probe and reference signals are slightly different, as both are shifted with acousto-optic modulators which work at frequencies that only differ by 40~kHz. The amplitude and the phase of the signals are simultaneously monitored.
+The amplitude collected is proportional to the amplitude of the probe pulse with respect to the reference, and the phase of the beatings corresponds to the phase shift produced by the pump to the probe pulse, considering the reference pulse as unaffected by the pump, and thus using it as a reference for the phase measurement. 
+
+
+
+\section{Results}
+\subsection{Heterodyne experiment}
+In Fig.~\ref{fig:ntc02TimeResSwitching} we can see observe both Kerr and carriers effect. They produce opposite phase shifts because Kerr produces an increase in refractive index ($\Delta n > 0$) and carriers decrease it ($\Delta n < 0$).
+
+
+The dynamics of each of these processes is also very different. During the pump pulse, we can see an instantaneous phase change due to Kerr effect, together with an amplitude decrease. This decrease is due to cross-absorption modulation (XAM), which consists of a two-photon absorption (TPA) process where one of the photons comes from the pump and the other comes from the probe. Once the pump pulse is gone, there is a phase response with opposite sign that remains for more than 100~ps. This is due to the carrier plasma effect, also known as free-carrier dispersion (FCD).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=60mm]{ntc02amp}
+    \includegraphics[width=60mm]{ntc02phase}
+    \caption{Sample response for different pump peak powers in the waveguide. Top: phase shift produced in probe pulse versus pump delay time (FCD: Free-carrier dispersion). Bottom: amplitude variation in the probe (XAM: cross absorption modulation).}
+    \label{fig:ntc02TimeResSwitching}
+\end{figure}
+
+Fitting the carriers decay time to a double exponential, we can clearly observe two tendencies with different recombination times. One of them is very fast (8ps time constant) whereas the other is much slower (123 ps). (See Fig.~\ref{fig:zoomTimeResNtc02Switching}). Carrier recombination time in Si waveguides is usually reported to be in the ns range \cite{Almeida2004b,Xu2007}, so we attribute this fast response to surface defects in the waveguide.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=60mm]{ntc02phase_exp_fit}
+    \caption{Panoramic view of the phase response in Fig.~\ref{fig:ntc02TimeResSwitching} showing the free-carriers decay. We use a two-exponential fit to simulate two very different recombination times, as a sigle-exponential fit is not able to follow both tendencies.}
+    \label{fig:zoomTimeResNtc02Switching}
+\end{figure}
+
+
+
+\section{Conclusion}
+We have characterized the dynamics of the nonlinear response of a Si waveguide with a time-resolved phase-sensitive pump and probe technique. The Kerr and XAM effects are clearly distinguished from the carrier dispersion effect. The carrier decay follows a double exponential decay with constants 8~ps and 122~ps, which is faster than values reported elsewhere. This fast decay time has allowed the fabrication of an all-optical switch with 10~dB extinction ratio and 150~ps recovery time, by using only 85~mW of pump peak power.
+
+\vskip3pt
+\ack{This work has been sponsored by the Spanish Science and Innovation Ministry through SINADEC (TEC2008-06333) and DEMOTEC (TEC2008-06360) contracts and by Generalitat Valenciana through PROMETEO-2010-087R\&D Excellency Program (NANOMET).}
+
+\vskip5pt
+
+\noindent J. Matres, J. Marti and C. J. Oton (\textit{Nanophotonics Technology Center, Universidad Polit\'ecnica de Valencia, Spain})
+\vskip3pt
+
+\noindent E-mail: joamatab@ntc.upv.es
+
+\begin{thebibliography}{1}
+
+\bibitem{Soref2006}
+Richard Soref.
+\newblock {The past, present, and future of silicon photonics}.
+\newblock {\em Selected Topics in Quantum Electronics, IEEE Journal \ldots},
+  12(6):1678--1687, 2006.
+
+\bibitem{Oton}
+C~J Oton, J~Matres, J~Herrera, and P~Sanchis.
+\newblock 150 ps all-optical switching in silicon microring resonators.
+\newblock In {\em European Conference on Integrated Optics}, 2010.
+
+\bibitem{Oton2010}
+C~J Oton, J~Matres, A~Martinez, P~Sanchis, J~P Colonna, C~Ratin, J~M Fedeli,
+  and J~Marti.
+\newblock {Ultrafast all-optical logic gates with silicon nanocrystal-based
+  slot waveguides}.
+\newblock In {\em Group IV Photonics (GFP), 2010 7th IEEE International
+  Conference}, pages 171--173, 2010.
+
+\bibitem{Turner-Foster2010}
+Amy~C Turner-Foster, Mark~a Foster, Jacob~S Levy, Carl~B Poitras, Reza Salem,
+  Alexander~L Gaeta, and Michal Lipson.
+\newblock {Ultrashort free-carrier lifetime in low-loss silicon
+  nanowaveguides.}
+\newblock {\em Optics express}, 18(4):3582--91, February 2010.
+
+\bibitem{heebner2007optical}
+John Heebner, Rohit Grover, and Tarek Ibrahim.
+\newblock {\em {Optical microresonators: theory, fabrication, and
+  applications}}.
+\newblock Springer, 2007.
+
+\bibitem{Almeida2004b}
+Vilson R~VR Almeida, Carlos~A Barrios, Roberto~R Panepucci, and Michal Lipson.
+\newblock {All-optical control of light on a silicon chip.}
+\newblock {\em Nature}, 431(7012):1081--1084, 2004.
+
+\bibitem{Xu2007}
+Qianfan Xu and Michal Lipson.
+\newblock {All-optical logic based on silicon micro-ring resonators.}
+\newblock {\em Optics express}, 15(3):924--9, February 2007.
+
+\end{thebibliography}
+
+
+\end{document}
+
+%\begin{table}[b]
+%\processtable{Coefficients and remainders for distribution KK ($k = 0.05$,
+%$v = 3$, $c_{1} = 1.5$, $c_{2} = 4.5$)}
+%{\begin{tabular}{|l|l|l|}\hline
+%$n$ & $a_{n}^{2}$ & $r_{k}(1)$\\\hline
+%0 & 3.602576748428 & 1.493719547999\\\hline
+%1 & 1.384791111989 & 0.108928436101\\\hline
+%2 & 0.108600438794 & 0.000327997399\\\hline
+%3 & 0.000275794597 & 0.000052202814\\\hline
+%4 & 0.000027616892 & 0.000024585922\\\hline
+%5 & 0.000018178621 & 0.000006407300\\\hline
+%\end{tabular}}{}
+%\end{table}
+%
+%So, the basic preamble and main body will be:
+%\verb"\documentclass[twocolumn]{el-author}"\\
+%\verb"\usepackage[...]{packages}"\\
+%\verb"\date{12 December 2012}"\\
+%\verb"\title{...}"\\
+%\verb"\author{...}"\\
+%\verb"\abstract{...}"\\
+%\verb"\maketitle{...}"\\
+%\verb"\begin{document}"\\
+%\verb"..."\\
+%\verb"\section{...}"\\
+%\verb"..."\\
+%\verb"\section{..}"\\
+%\verb"..."\\
+%\verb"\end{document}" 

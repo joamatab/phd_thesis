@@ -1,0 +1,134 @@
+\documentclass[oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\title{Simulación Del Backscattering En Anillos Resonantes}
+\author{Guillem B.G.}
+%\setlength{\oddsidemargin}{0pt}
+%\setlength{\evensidemargin}{0pt}
+
+\begin{document}
+\maketitle
+\newpage
+\section{Introducción}
+El espectro en transmisión de los anillos observado experimentalmente a veces
+muestra un dosdeblamiento de los picos que podemos asociar a un acoplamiento
+entre los modos propagantes y contrapropagantes del anillo. Una posible causa
+para que se produzca son las reflexiones que tienen lugar dentro del anillo
+debidas a las irregularidades de las superficies como se explica en~\cite{surface-roughness}.
+Además superpuesto siempre aparece un ruido de naturaleza estadística que es
+el que se intentará estudiar. En~\cite{statistics} se mide experimentalmente que para una guía
+recta, la distribución que controla la intensidad de la luz reflejada es una
+exponencial negativa (i.e. $\lambda e^{-\lambda x}$). En~\cite{statistics} también se ofrece
+una ecuación para evaluar el valor medio de la distribución en función de los
+parámetros de la guía ($\alpha, L$)y una constante experimental ($H_0$) que 
+depende tanto del modo como de la anchura de la guía.
+
+\begin{equation}
+   \langle R \rangle = H_0 (1-exp(-2\alpha L))/2\alpha
+\end{equation}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.5]{melloni.pdf}
+    \caption{Gráfica extraida de~\cite{statistics}.}
+\end{figure}
+
+\section{Desarrollo}
+En primer lugar se probó a darle una reflectividad al punto de scattering
+distinta a cada longitud de onda según una distribución como la anterior
+utilizando como longitud la longitud del anillo.
+
+%%Gráficas con un par de fracasos
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{malr002.pdf}
+    \caption{Resultados sin tener en cuenta $L_{eff}$. $R_{mean} = 0.002$}
+    \label{mal1}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.3]{malr02.pdf}
+    \caption{Resultados sin tener en cuenta $L_{eff}$. $R_{mean} = 0.02$}
+    \label{mal2}
+\end{figure}
+
+Pero como se puede observar los resultados no son nada satisfactorios porque
+incluso aumentando mucho la reflectividad el desdoblamiento de los picos queda
+enmascarado por el ruido debido a que la media de la exponencial decreciente
+es igual a su desviación estándar.
+
+Después de varios intentos se llegó a la conclusión de que el anillo, al  ser
+una estructura resonante, muestra en realidad una longitud efectiva que podemos
+relacionar con la primera derivada del desfase introducida por el mismo.
+Podemos relacionar la expresión para el retardo de grupo [Heebner] con una
+longitud efectiva:
+
+\begin{equation}
+   L_{eff}=L_{fisica} \Phi '
+\end{equation}
+
+Considerando esto último lo que se hace es:
+\begin{enumerate}
+\item Obtener la longitud efectiva del anillo para una $\lambda$ dada.
+\item Con la ecuación (1) obtenemos la reflectividad media.
+\item Obtenemos un valor aleatorio que siga la distribución densidad de
+probabilidad con la media de 2).
+\item Obtener la intensidad transmitida a esa longitud de onda con un punto de
+reflectividad igual al obtenido en 3)
+\item Repetir para la siguiente longitud de onda
+\end{enumerate}
+
+Siguiendo este procedimiento vemos que los picos vuelven a ser
+discernibles. Esto es así porque el aumento de la desviación estándar solo
+afecta mucho cuando hemos llegado justo a los puntos de la resonancia.
+
+\section{Resultados}
+Resultados obtenidos considerando la longitud efectiva del anillo, los parámetros
+del acoplo guía anillo y la atenuación en dB aparece en las gráficas. El valor de
+$H_0$ es 0.0128$cm^{-1}$
+
+%%Graficas con los resultados guays
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{k3-a5.pdf}
+    \caption{Resultado considerando $L_{eff}$}
+    \label{r1g}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale=0.5]{otro.pdf}
+    \caption{Otro resultado considerando $L_{eff}$}
+    \label{r2g}
+\end{figure}
+
+El uso de una longitud efectiva también concuerda con lo dicho en~\cite{scat-anillo},
+donde se considera el indice de grupo y se observa como aumenta la reflexión
+cuando este crece.
+\newpage
+\section{Mejoras}
+La más importante es utilizar un retardo de grupo obtenido especificamente
+para el anillo con acoplamiento entre sus dos modos, porque las resonancias
+no caen en el mismo sitio que las del anillo normal debido al desdoblamiento,
+y esto modificará el ruido estadístico que se observa en las simulaciones.
+Otra posible mejora, que aun no se como implementar, sería considerar la
+reflectividad del anillo como un parámetro distribuido en lugar de ocurrir
+en un único punto.
+
+ \begin{thebibliography}{99}
+ \bibitem{surface-roughness}
+ Surface-roughness-induced contradirectional coupling in ring and disk resonantors.
+ Brent E. Little, Laine, Chu
+
+ \bibitem{statistics}
+ Statistics of backscattering in optical waveguides.
+ Morichetti, Canciamilla, Melloni
+ 
+ \bibitem{scat-anillo}
+ Coherent Backscattering in optical microring resonators.
+ Morichetti
+ \end{thebibliography}
+
+\end{document}

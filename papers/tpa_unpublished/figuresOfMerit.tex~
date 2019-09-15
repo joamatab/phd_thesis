@@ -1,0 +1,341 @@
+% Joaquin Matres
+%%%%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt,letterpaper]{article}
+\usepackage{opex3}
+\usepackage{amsmath}
+
+\usepackage{color}
+\newcommand{\comment}[1]{\textcolor{red}{#1}}
+\newcommand{\fWidthSetup}{0.85}
+\newcommand{\fWidth}{0.8}
+
+%\usepackage{ae} %%for Computer Modern fonts
+
+%%%%%%%%%%%%%%%%%%%%%%% begin %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%% title page information %%%%%%%%%%%%%%%%%%
+\title{High figure of merit and low absorption in amorphous Silicon waveguides}
+%\title{Ultrafast nonlinear dynamics in silicon nanocrystal-based horizontal slot waveguides}
+
+\author{J. Matres$^{*,1}$, J-M F\'ed\'eli$^2$, J. Mart\'i$^1$ and C. J. Oton$^1$}
+% J. Mart\'i$^1$,
+\address{$^1$ Nanophotonics Technology Center, \\ Universidad Polit\'ecnica de Valencia, Camino de Vera s/n, 46022, Valencia, Spain\\
+$^2$CEA LETI, Minatec Campus, Grenoble 38054, France}
+
+\email{$^*$joamatab@ntc.upv.es}
+
+
+%%%%%%%%%%%%%%%%%%% abstract and OCIS codes %%%%%%%%%%%%%%%%
+%% [use \begin{abstract*}...\end{abstract*} if exempt from copyright]
+
+\begin{abstract}
+A two photon absorption figure of merit of 4.9 is measured in amorphous silicon waveguides. Real part is obtained through Four-wave-mixing and absorption coefficient with the losses for different peak powers of a pulsed laser. 
+
+%We compare the figure of merit in amorphous silicon waveguides with regular Silicon strip waveguides
+
+%An accurate method is presented to calculate the nonlinear absorption coefficient proven valid both for low (amorphous Silicon) and high (TE crystalline Silicon strip) absorption waveguides.
+%demonstrated as 
+ %A more accurate formula to calculate the imaginary part is explained and proven valid both for low (amorphous Si) and high (TE crystalline Silicon strip) absorption waveguides.
+%We present a simple technique to determine the imaginary part of the nonlinear coefficient. Comparing the values of different structures.
+\end{abstract}
+
+\ocis{(190.0190) Nonlinear optics; (130.0130) Integrated optics; (320.0320) Ultrafast optics; (160.4330) Nonlinear optical materials.}
+
+%(220.0220) Optical design and fabrication; (230.5750) Resonators; (230.3990) Microstructure devices; (250.5300) Photonic Integrated Circuits.}
+
+%%%%%%%%%%%%%%%%%%%%%%% References %%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{osajnl}
+\bibliography{/home/joaquin/Documents/library}
+
+%\begin{thebibliography}{10}
+%\newcommand{\enquote}[1]{``#1''}
+
+
+
+%\end{thebibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%           Introduction           %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Silicon photonics is a technology that is becoming competitive with alternative technologies in photonics, being its high integrability and low cost the most appealing features. Nonlinear silicon photonics is a very active research line, as devices with all-optical functionality could boost their speed with respect to their electrically-controlled counterpart. Many different nonlinear devices have been reported in the last years, such as all-optical modulators,~\cite{Almeida2004a} wavelength converters,~\cite{Lee2009} etc. 
+
+
+
+In \cite{Kuyken2011} a figure of merit of 2.2 was obtained
+
+Moreover amorphous Silicon is a material that can be easily grown
+
+%When carrier effects are involved in these devices, the speed is limited by the carrier recombination time, which is usually in the order of 1ns. Although carrier sweeping can improve the speed,~\cite{Turner-Foster2010} nonlinear devices based on bound-electron Kerr effect are preferred, as their bandwidth does not have this limitation. One interesting parameter is the nonlinear absorption coefficient.
+
+%An easy way to determine the figure of merit of a waveguide
+
+ %Slot waveguides have demonstrated to increase the Kerr effect because of the field enhancement produced in the low-index section. Different materials have been used to fill the slot, such as organic polymers, which have allowed to demonstrate all-optical 160Gb/s demultiplexing,~\cite{Koos2009} but these materials involve non-CMOS processes and impose temperature limitations. Silicon-nanocrystal-based waveguides are fully CMOS-compatible and have a very high nonlinear coefficient,~\cite{Spano2009} and ultrafast all-optical modulation and logic gates have been recently demonstrated \cite{Martinez2010a}-\cite{Otona}. In this paper we study the nonlinear dynamics of this kind of waveguides with a time-resolved technique and we also report four-wave-mixing measurements that provide a complete nonlinear characterization.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%     Experiment      %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fabrication}
+We characterize 3 samples: TM amorphous Silicon strip and TE-TM regular Silicon strips. Amorphous Silicon samples started from silicon‑-on‑-insulator (SOI) wafers with 220nm Si thickness. After growing 253nm amorphous silicon waveguides were etched. We measured 4dB/cm propagation losses through different length waveguides.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.32\textwidth]{p13}
+    \includegraphics[width=0.32\textwidth]{semV740tm}
+    \includegraphics[width=0.32\textwidth]{semV740te}
+    \caption{SEM images of the amorphous silicon sample (left), TM (center) and TE (right) silicon strip waveguides.}
+    \label{fig:sem}
+\end{figure}
+
+
+
+\section{Estimation of TPA from pulsed transmission}
+Two-photon absorption is a well-known process in silicon waveguides. In a waveguide, we can consider it as the imaginary part of the gamma coefficient of the waveguide this way:
+
+\begin{equation}
+ \frac{dP}{dz} = -\alpha P(z) - 2|Im(\gamma)| P(z)^2 
+\label{eq:differentialTPA}
+\end{equation}
+
+where P is the signal power through the waveguide, $\alpha$ is the linear loss of the waveguide, and $|Im(\gamma)|$ is the absolute value of the imaginary part of gamma, where we use the absolute value because $|Im(\gamma)|$ is actually a negative number, but we want to use a negative sign to stress its loss character.
+This equation has an analytic solution \cite{Vallaitis2009}, which is:
+
+\begin{equation}
+ P(L) = \frac{e^{-\alpha L}}{1+2|Im(\gamma)| L_{eff} P_0} P_0
+\end{equation}
+
+where $P_0$ is the input power in the waveguide and $L_{eff}$ is defined as:
+
+\begin{equation}
+ L_{eff} = \frac{1-e^{-\alpha_0L}}{\alpha_0}
+\end{equation}
+
+This means that the inverse of the transmission is:
+
+\begin{equation}
+ T^{-1} = \frac{P_0}{P(L)} = \frac{1+2|Im(\gamma)| L_{eff} P_0}{e^{-\alpha L}}
+\end{equation}
+
+Therefore the relationship between the transmission at high power vs. the transmission at low power ($T_{LP}$) is:
+
+\begin{equation}
+ \frac{T^{-1}}{T_{LP}^{-1}} = 1+2|Im(\gamma)| L_{eff} P_0
+\label{eq:transmissionLinear}
+\end{equation}
+
+Which is a linear function on $P_0$. The slope of the curve can give us the two-photon absorption coefficient of our waveguide as in \cite{Vallaitis2009}.
+However, this equation is only valid for an instantaneous transmission values. If one sends a pulsed signal, the equation is still correct for every instantaneous moment, but not correct for the overall transmission energy of the pulse.
+If one defines the energy transmission of a pulse $ \tilde{T} $ as the amount read by a power meter, one has to integrate the power along the whole pulse duration:
+
+\begin{equation}
+ \tilde{T} (L) = \frac{E(L)}{E_0} = \frac{\int P(t,L)dt}{\int P_0(t)dt}
+\end{equation}
+
+where the integral covers the whole duration of the pump and E denotes the energy of the pulse.
+With this definition, we have:
+
+
+\begin{equation}
+ \tilde{T} (L)^{-1} = \frac{\int P_0(t)dt}{\int P(t,L)dt} = \frac{\int P_0(t)dt} {e^{-\alpha L} \int \frac{P_0(t)}{1+2|Im(\gamma)| L_{eff} P_0(t)} dt}
+\end{equation}
+
+
+And the ratio with the transmission at low power is:
+
+\begin{equation}
+ \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} = \frac{\int P_0(t)dt}{\int P(t,L)dt} = \frac{\int P_0(t)dt}{\int \frac{P_0(t)}{1+2|Im(\gamma)| L_{eff} P_0(t)} dt}
+\label{eq:transmissionIntegral}
+\end{equation}
+
+
+which depends on the actual pulse shape P(t).
+Physically, the reason for this variation is the fact that the flanks of the pulse are not affected as hardly by TPA as the peak of the pulse. Therefore, the overall energy transmission is higher than for the case of cw excitation (Eq.~\ref{eq:transmissionLinear}). One can calculate analytically how much this transmission is for different typical pulse shapes. One could start thinking of a Lorentzian shape:
+
+\subsection{Lorentzian}
+
+\begin{equation}
+ P_0(t) = \frac{P_{0 peak}}{1+\frac{t}{\tau}}
+\end{equation}
+
+
+The final result solving Eq.~\ref{eq:transmissionIntegral} does not depend on the duration of the pulse. The result of Eq.~\ref{eq:transmissionIntegral} for the Lorentzian pulse shape is:
+
+
+\begin{equation}
+ \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Lorentzian}  = \sqrt{1+2|Im(\gamma)| L_{eff} P_{0 peak}}
+\label{eq:transmissionLorentzian}
+\end{equation}
+
+where the square root of the equation contrasts with its absence in Eq.~\ref{eq:transmissionLinear}.
+
+Let us consider the gaussian case:
+
+\subsection{Gaussian}
+%Finally, let us consider the gaussian case:
+
+\begin{equation}
+ P_0(t) = P_{0 peak}~exp \big( - (\frac{t}{\tau})^2 \big)
+\end{equation}
+
+
+where the solution of Eq.~\ref{eq:transmissionIntegral} is:
+
+
+\begin{equation}
+ \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Gaussian}  = \frac{\delta}{-Li_{\frac{1}{2}}(-\delta)}
+\label{eq:transmissionGaussian}
+\end{equation}
+
+where $ \delta = 2|Im(\gamma)| L_{eff} P_{0 peak} $ and $Li_s(z)$ is the so-called polylogarithm function defined as:
+
+
+\begin{equation}
+ Li_s(z) = \sum\limits_{k=1}^\infty \frac{z^k}{k^s}
+\end{equation}
+
+
+
+Finally, let us now assume a hyperbolic secant pulse, typical for solitons, which is the shape of our femtosecond fiber laser:
+\subsection{Hyperbolic secant}
+\begin{equation}
+ P_0(t) = P_{0 peak}~sech^2 \frac{t}{\tau}
+\end{equation}
+
+
+
+Solving Eq.~\ref{eq:transmissionIntegral} for the hyperbolic secant was not trivial. After some algebraic manipulation and using some properties of inverse hyperbolic trigonometric functions, one can extract the analytical result, which is:
+
+\begin{equation}
+ \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Hyp.~secant}  = \frac{\sqrt{\delta}\sqrt{\delta + 1}}{sinh^{-1}(\sqrt{\delta})}
+\label{eq:transmissionHypSecant}
+\end{equation}
+
+for $ \delta = 2|Im(\gamma)| L_{eff} P_{0 peak} $
+
+
+
+
+Let’s see how these results look like in Figure~\ref{fig:transmissionGaussianLorentzianHypSecant}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{imGamma_transmissionGaussianLorentzianHypSecant}
+    %\caption{Absorption for different pulse shapes.}
+    \caption{Absorption assuming different pulse shapes.}
+    \label{fig:transmissionGaussianLorentzianHypSecant}
+\end{figure}
+
+
+As we can see, the cw case, which is equivalent to a pulse with a rectangular shape, has a linear dependence with the peak power, while the other shapes are all sublinear, being the Lorentzian case the most sublinear. The gaussian and hyperbolic secant are quite similar.
+Instead of using the exact equations shown here, some of which are a bit complicated, one can do an approximation for small $ \delta $ $(\delta \gg 1)$ to first order, where we obtain:
+
+
+\begin{align}
+& \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Lorentzian}   = 1 + \frac{1}{2}\delta + O(\delta^2) \\
+& \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Gaussian}  = 1 + \frac{2}{3}\delta + O(\delta^2) \\
+& \frac{\tilde{T} (L)^{-1}}{\tilde{T}_{LP} (L)^{-1}} \bigg|_{Hyp.~secant}  = 1 + \frac{1}{\sqrt{2}}\delta + O(\delta^2)
+\end{align}
+
+
+remembering that $ \delta = 2|Im(\gamma)| L_{eff} P_{0 peak} $, $ \tilde{T} $ is the pulse energy transmittance, and $ \tilde{T}_{LP} $ the low-power transmittance. It is worth noting that the slopes are significantly different.
+
+%\section{Imaginary part of Gamma coefficient}
+
+\section{Absorption: Im\{$ \gamma $\}}
+We measure losses with power meters before and after the sample using a femtosecond fiber laser. Different peak pulses are obtained using a variable attenuator. Average to peak power conversion factor is 46.85dB, considering 50ns pulse repetition rate (20MHz) and 1-ps hyperbolic-secant pulses. Using an autocorrelator we measure 0.9072ps FWHM. Central wavelength is 1539nm and 2.82nm 3dB-spectral width. Coupling losses are 7.5dB for the amorphous silicon waveguide and 6dB for TE-TM silicon strips.
+
+%(Fig.~\ref{fig:imGammaSetup})
+%\begin{figure}[htb]
+ %   \centering
+  %  \includegraphics[width=1.00\textwidth]{imGammaFit}
+   % \caption{Absorption characterization setup.}
+    %\label{fig:imGammaSetup}
+%\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.32\textwidth]{imGamma_P13a_MiddleSet_TM_20mm_5p43_ida_big}
+    \includegraphics[width=0.32\textwidth]{imGamma_5p4366_V740TM25mm_big30}   
+    \includegraphics[width=0.32\textwidth]{imGamma_117Wm-1_V740TE25mm_big30}
+    \caption{Transmission versus waveguide peak power. Fit for $ sech^2 $ pulses (Eq.~\ref{eq:transmissionHypSecant}).}
+    \label{fig:imGammaSamples}
+\end{figure}
+
+
+%\section{Real part of Gamma coefficient: Four-wave-mixing measurements}
+\section{Four-wave-mixing: Re\{$ \gamma $\}}
+We couple into the waveguide two cw beams, an amplified pump and a signal, which generates an idler signal. We measure the conversion efficiency as a function of the wavelength separation between pump and signal (Fig.~\ref{fig:fwmBw}). Assuming that at these power levels TPA is negligible, we fit the results to the equation shown in Ref.~\cite{Vallaitis2009} for the FWM efficiency $ \eta $ formula:
+
+%(Fig.~\ref{fig:fwmSetup}
+
+\begin{equation}
+	\eta ^2=\frac{\alpha_0^2}{\alpha_0^2+\Delta \beta^2}\left[ 1+ 4e^{-\alpha_0L}\frac{sin^2(L\Delta\beta/2)}{(1-e^{-\alpha_0L})^2} \right] \nonumber	
+\end{equation}
+
+where $ \Delta\beta $ for a detuning $ \Delta\lambda = \lambda_p-\lambda_s$ is given by:
+
+\begin{equation}
+	\Delta \beta=\frac{2\pi cD_2}{\lambda_p^2}\Delta\lambda^2 \nonumber
+\end{equation}
+
+
+%\begin{figure}[htb]
+ %   \centering
+  %  \includegraphics[width=1.00\textwidth]{fwmOneEdfa}
+   % \caption{Four Wave Mixing characterization setup.}
+   % \label{fig:fwmSetup}
+%\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.32\textwidth]{fwm_bandwidth_P13_TM20mm_15dBmPump_6dBcm_332Wm_6474psKmnm_big_1pointMore}
+    \includegraphics[width=0.32\textwidth]{fwm_bandwidth_V740_C11_TM25mm_20dBm_pump_1p67_46p81_19860psKmnm_big}
+    \includegraphics[width=0.32\textwidth]{fwm_BW_V740C11_TE25mm_15dBmPump_3p8dBcm_361Wm_-1322psKmnm_big}
+    \caption{Four wave mixing conversion efficiency bandwidth. Pump powers: 7.5dBm (TM a-Si), 14dBm (TM), 9dBm (TE). }
+    \label{fig:fwmBw}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.32\textwidth]{fwm_differentPumps_aSitm20mm}
+    \includegraphics[width=0.32\textwidth]{fwm_differentPumps_tm}
+    \includegraphics[width=0.32\textwidth]{fwm_differentPumps_te}
+    \caption{Four wave conversion efficiency for different pump powers.}
+    \label{fig:fwmDifferentPump}
+\end{figure}
+
+
+\begin{table}
+\centering
+\caption{Properties of the amorphous silicon waveguide compared with 443x220 and 487x220nm (TE and TM) silicon strip waveguides. The dispersion value was obtained through the fit of the FWM conversion bandwidth; sign was obtained simulating the dispersion of the structure. To calculate the FOM we used the $ sech^2 $  pulses fit in Eq.~\ref{eq:transmissionHypSecant}.}
+\begin{tabular}{l|ccc}
+\hline
+Sample & TM a-Si & TM strip & TE strip\\\hline
+coupling [dB] & 7.5 & 6 & 6\\
+propagation [dB/cm] & 4 & 1.9 & 4.9\\
+Leff [mm] & 9.14 & 15.2 & 8.34\\
+{$|Im\{\gamma\}| ~ [Wm]^{-1} $ linear} & 2.98 & 2.68 & 26.71\\
+{$|Im\{\gamma\}| ~ [Wm]^{-1}$ sech} & 5.43 & 5.44 & 68.08\\
+{$|Re\{\gamma\}| ~ [Wm]^{-1}$ } & 332 & 47 & 361\\
+$ FOM = \frac{1}{4\pi} \frac{Re\{\gamma\}}{|Im\{\gamma\}|} $ & 4.9 & 0.69 & 0.43\\
+D [ps/(Km nm)] & -6500 & -19800 & -1200\\ \hline
+\end{tabular}
+
+\end{table}
+
+%$ \frac{P_{Idler}(L)}{P_{Signal}(L)}$ for 14.46dBm pump power in waveguide gives an idea of FWM Conversion efficiency when wavelength difference between signal and pump increases. Fitting to the FWM efficiency formula in paper \cite{Vallaitis2009} we obtain -19860ps/(nm km) dispersion, 1.7dB/cm losses and $ Re\{\gamma\} = 47 (Wm)^{-1} $.}
+%\section{Figure of merit}
+
+
+\section{Conclusion}
+In conclusion, one has to be careful when extracting the imaginary part of $ \gamma $ from pulse transmission measurements, as Eq.~\ref{eq:transmissionLinear} is only valid for instantaneous transmission values. If transmission is measured with an averaging power meter, one has to use Eq.~\ref{eq:transmissionIntegral} for the specific pulse-shape, where in this paper we provide the solution for Lorentzian, Hyperbolic secant, and Gaussian shapes.
+A figure of merit of 4.9 was obtained
+
+
+\section*{Acknowledgments}
+The authors acknowledge financial support from the Spanish Ministry of Science and Innovation through contract SINADEC (TEC2008-06333). Joaquin Matres is supported by a doctoral grant of the Universidad Polit\'ecnica de Valencia.
+
+\end{document} 

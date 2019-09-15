@@ -74,6 +74,7 @@ Icon?
 *.xml
 *.tar.gz
 *.zip
+*.gz
 *.rdb
 *.sty
 *.blg

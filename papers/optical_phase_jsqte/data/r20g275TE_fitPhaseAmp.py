@@ -25,16 +25,9 @@ from scipy import optimize
 
 
 def ring(x,phi=0,k=0.3,A=0.99,ng=4.36,R=20e-6):
-#losses(dB/cm) = 20*log10(A)/(2*pi*20e-6*100)    
-    if abs(k)<1.0:
-        t =  sqrt(1-k**2)
-    else:
-        t = 0
-        
-    if abs(A)<1.0:
-        A =  abs(A)
-    else:
-        A = 0
+#losses(dB/cm) = 20*log10(A)/(2*pi*20e-6*100)
+    t = sqrt(1-k**2) if abs(k)<1.0 else 0
+    A = abs(A) if abs(A)<1.0 else 0
     beta = 2* pi*ng/x
     L = 2* pi*R
     return (  t-A* exp(1j*beta*L+1j*phi)  )/(  1-t*A* exp(1j*beta*L+1j*phi)  )

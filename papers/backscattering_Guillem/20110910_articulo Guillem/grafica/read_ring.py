@@ -13,10 +13,8 @@
 def read_data(name_in):
 	from numpy import genfromtxt, isnan, any
 
-	#Lectura de los nombres de las series, se asume que se han copiado y pegado en la primera fila del archivo
-	infile = open(name_in, 'r')
-	names = infile.readline()
-	infile.close()
+	with open(name_in, 'r') as infile:
+		names = infile.readline()
 	names = names.lstrip('#').split('\t')
 
 	#Aqui se leen los datos numericos

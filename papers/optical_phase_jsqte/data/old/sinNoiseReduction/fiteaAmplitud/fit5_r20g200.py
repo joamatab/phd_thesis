@@ -20,27 +20,15 @@ from importa import importaa, importap
 from scipy import optimize
 
 def ring(x,phi=0,k=0.3,A=0.99,neff=4.36,R=20e-6):
-#losses(dB/cm) = 20*log10(A)/(2*pi*20e-6*100)    
-    if abs(k)<1.0:
-        t =  sqrt(1-k**2)
-    else:
-        t = 0
-        
-    if abs(A)<1.0:
-        A =  abs(A)
-    else:
-        A = 0
+#losses(dB/cm) = 20*log10(A)/(2*pi*20e-6*100)
+    t = sqrt(1-k**2) if abs(k)<1.0 else 0
+    A = abs(A) if abs(A)<1.0 else 0
     beta = 2* pi*neff/x
     L = 2* pi*R
-    
-#    dBperMeterLosses=dBcmLosses*100
-#    NpPerMeterLosses=dBperMeterLosses*log(10)/20
-#    A = exp(-NpPerMeterLosses*L) #A = exp(-dBcmLosses/(10/log(10))*L*100/2) #alfa(dB/cm)=10*log10(e)*alfa(Np/cm)  A=exp(-alfa(Np/cm)*L(cm)/2)
-    y = (  t-A* exp(1j*beta*L+1j*phi)  )/(  1-t*A* exp(1j*beta*L+1j*phi)  )
    #plt.plot(x*1e9,20* log10( abs(Hcampo)))
    # plt.plot(x*1e9,(( angle(Hcampo)/pi)))
    # plt.ylabel('Fase de T/_p_i')
-    return y
+    return (  t-A* exp(1j*beta*L+1j*phi)  )/(  1-t*A* exp(1j*beta*L+1j*phi)  )
     
     
 def normalizeSpectrum(y): 

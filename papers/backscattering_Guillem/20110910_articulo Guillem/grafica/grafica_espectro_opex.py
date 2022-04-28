@@ -146,12 +146,8 @@ def Horquilla(Min, Max, x_exp, y_exp):
     """
     data = array([x_exp, y_exp])
     data = transpose(data)
-    mod_data = []
+    mod_data = [[x,y] for x,y in data if x > Min and x < Max]
 
-    for x,y in data:
-        if x > Min and x < Max:
-            mod_data.append([x,y])
-    
     mod_data = transpose(mod_data)
     return mod_data[0], mod_data[1]
 
@@ -159,33 +155,29 @@ Through_x_exp, Through_y_exp = Horquilla(-0.2,0.2,Through_x_exp, Through_y_exp)
 Drop_x_exp, Drop_y_exp = Horquilla(-0.2,0.2,Drop_x_exp, Drop_y_exp)
 AntiDrop_x_exp, AntiDrop_y_exp = Horquilla(-0.2,0.2,AntiDrop_x_exp, AntiDrop_y_exp)
 
-################################################################################
+from equation_oscillator_2 import *
 
+x = linspace(-0.0002,0.0002,5000)
+Q_e1 = 66378.949
+Q_e2 = 130515.825
+Q_i  = 61938.6076
+Q_u  = 58868.63093
 
-if 1==1:
-    from equation_oscillator_2 import *
+#Renormalizando el espectro a lo que realmente se ha ajustado
+new_base_line = 0.89
+Drop_y_exp = Drop_y_exp/new_base_line
+AntiDrop_y_exp = AntiDrop_y_exp/new_base_line
+Through_y_exp = Through_y_exp/new_base_line
 
-    x = linspace(-0.0002,0.0002,5000)
-    Q_e1 = 66378.949
-    Q_e2 = 130515.825
-    Q_i  = 61938.6076
-    Q_u  = 58868.63093
+T = Through(x,Q_e1,Q_e2,Q_i,Q_u) #azul
+D = Drop(x,Q_e1,Q_e2,Q_i,Q_u) #verde
+AD = AntiDrop(x,Q_e1,Q_e2,Q_i,Q_u) #rojo
 
-    #Renormalizando el espectro a lo que realmente se ha ajustado
-    new_base_line = 0.89
-    Drop_y_exp = Drop_y_exp/new_base_line
-    AntiDrop_y_exp = AntiDrop_y_exp/new_base_line
-    Through_y_exp = Through_y_exp/new_base_line
-
-    T = Through(x,Q_e1,Q_e2,Q_i,Q_u) #azul
-    D = Drop(x,Q_e1,Q_e2,Q_i,Q_u) #verde
-    AD = AntiDrop(x,Q_e1,Q_e2,Q_i,Q_u) #rojo
-
-    lambda0 = 1548.95
-    #Desnormalizando el eje de frecuencias
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(T),'-.', lw=2.0)
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(D),'-.', lw=2.0)
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(AD),'-.', lw=2.0)
+lambda0 = 1548.95
+#Desnormalizando el eje de frecuencias
+p.plot(-x*lambda0/(x+1)*10, 10*log10(T),'-.', lw=2.0)
+p.plot(-x*lambda0/(x+1)*10, 10*log10(D),'-.', lw=2.0)
+p.plot(-x*lambda0/(x+1)*10, 10*log10(AD),'-.', lw=2.0)
 
 p.ylim([-25,0])
 p.xlim([-2.01,2.01])
@@ -242,34 +234,30 @@ Through_x_exp, Through_y_exp = Horquilla(-0.2,0.2,Through_x_exp, Through_y_exp)
 Drop_x_exp, Drop_y_exp = Horquilla(-0.2,0.2,Drop_x_exp, Drop_y_exp)
 AntiDrop_x_exp, AntiDrop_y_exp = Horquilla(-0.2,0.2,AntiDrop_x_exp, AntiDrop_y_exp)
 
-################################################################################
+from equation_oscillator_2 import *
+
+x = linspace(-0.0002,0.0002,5000)
+Q_e1 = 66421.832
+Q_e2 = 126071.59
+Q_i  = 68502.438
+Q_u  = 105389.748
 
 
-if 1==1:
-    from equation_oscillator_2 import *
+#Renormalizando el espectro a lo que realmente se ha ajustado
+new_base_line = 0.94
+Drop_y_exp = Drop_y_exp/new_base_line
+AntiDrop_y_exp = AntiDrop_y_exp/new_base_line
+Through_y_exp = Through_y_exp/new_base_line
 
-    x = linspace(-0.0002,0.0002,5000)
-    Q_e1 = 66421.832
-    Q_e2 = 126071.59
-    Q_i  = 68502.438
-    Q_u  = 105389.748
+T = Through(x,Q_e1,Q_e2,Q_i,Q_u) #azul
+D = Drop(x,Q_e1,Q_e2,Q_i,Q_u) #verde
+AD = AntiDrop(x,Q_e1,Q_e2,Q_i,Q_u) #rojo
 
-
-    #Renormalizando el espectro a lo que realmente se ha ajustado
-    new_base_line = 0.94
-    Drop_y_exp = Drop_y_exp/new_base_line
-    AntiDrop_y_exp = AntiDrop_y_exp/new_base_line
-    Through_y_exp = Through_y_exp/new_base_line
-
-    T = Through(x,Q_e1,Q_e2,Q_i,Q_u) #azul
-    D = Drop(x,Q_e1,Q_e2,Q_i,Q_u) #verde
-    AD = AntiDrop(x,Q_e1,Q_e2,Q_i,Q_u) #rojo
-
-    lambda0 = 1553.36
-    #Desnormalizando el eje de frecuencias
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(T),'-.', lw=2.0)
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(D),'-.', lw=2.0)
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(AD),'-.', lw=2.0)
+lambda0 = 1553.36
+#Desnormalizando el eje de frecuencias
+p.plot(-x*lambda0/(x+1)*10, 10*log10(T),'-.', lw=2.0)
+p.plot(-x*lambda0/(x+1)*10, 10*log10(D),'-.', lw=2.0)
+p.plot(-x*lambda0/(x+1)*10, 10*log10(AD),'-.', lw=2.0)
 
 p.ylim([-25,0])
 p.xlim([-2.01,2.01])
@@ -324,33 +312,29 @@ Through_x_exp, Through_y_exp = Horquilla(-0.2,0.2,Through_x_exp, Through_y_exp)
 Drop_x_exp, Drop_y_exp = Horquilla(-0.2,0.2,Drop_x_exp, Drop_y_exp)
 AntiDrop_x_exp, AntiDrop_y_exp = Horquilla(-0.2,0.2,AntiDrop_x_exp, AntiDrop_y_exp)
 
-################################################################################
+from equation_oscillator_2 import *
 
+x = linspace(-0.0002,0.0002,5000)
+Q_e1 = 52833.569
+Q_e2 = 112499.15
+Q_i  = 59880.011
+Q_u  = 25725.31
 
-if 1==1:
-    from equation_oscillator_2 import *
+#Renormalizando el espectro a lo que realmente se ha ajustado
+new_base_line = 0.92
+Drop_y_exp = Drop_y_exp/new_base_line
+AntiDrop_y_exp = AntiDrop_y_exp/new_base_line
+Through_y_exp = Through_y_exp/new_base_line
 
-    x = linspace(-0.0002,0.0002,5000)
-    Q_e1 = 52833.569
-    Q_e2 = 112499.15
-    Q_i  = 59880.011
-    Q_u  = 25725.31
+T = Through(x,Q_e1,Q_e2,Q_i,Q_u) #azul
+D = Drop(x,Q_e1,Q_e2,Q_i,Q_u) #verde
+AD = AntiDrop(x,Q_e1,Q_e2,Q_i,Q_u) #rojo
 
-    #Renormalizando el espectro a lo que realmente se ha ajustado
-    new_base_line = 0.92
-    Drop_y_exp = Drop_y_exp/new_base_line
-    AntiDrop_y_exp = AntiDrop_y_exp/new_base_line
-    Through_y_exp = Through_y_exp/new_base_line
-
-    T = Through(x,Q_e1,Q_e2,Q_i,Q_u) #azul
-    D = Drop(x,Q_e1,Q_e2,Q_i,Q_u) #verde
-    AD = AntiDrop(x,Q_e1,Q_e2,Q_i,Q_u) #rojo
-
-    lambda0 = 1557.79
-    #Desnormalizando el eje de frecuencias
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(T),'-.', lw=2.0)
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(D),'-.', lw=2.0)
-    p.plot(-x*lambda0/(x+1)*10, 10*log10(AD),'-.', lw=2.0)
+lambda0 = 1557.79
+#Desnormalizando el eje de frecuencias
+p.plot(-x*lambda0/(x+1)*10, 10*log10(T),'-.', lw=2.0)
+p.plot(-x*lambda0/(x+1)*10, 10*log10(D),'-.', lw=2.0)
+p.plot(-x*lambda0/(x+1)*10, 10*log10(AD),'-.', lw=2.0)
 
 
 p.ylim([-25,0])

@@ -72,8 +72,7 @@ def Through(lamb, radius, neff, K, R):
     T = 1. - R
     M = 1. - K
 
-    alfa = 2.  #db/cm
-    alfa /= 4.34294482
+    alfa = 2. / 4.34294482
     alfa *= (10**-4.)
     a = e**(-1.*alfa*L)
 
@@ -88,8 +87,8 @@ def Through(lamb, radius, neff, K, R):
     A = t*(M + 1.)
     c = cos(k*L)
     c2 = cos(k*L)**2.
-   
-    D1 = 4.*M*c2 - 4.*m*A*c + (A**2.) 
+
+    D1 = 4.*M*c2 - 4.*m*A*c + (A**2.)
     D2 = 4.*M*c2 - 4.*m*A*c + (M - 1.)**2. + 4.*M*T
 
     return D1/D2
